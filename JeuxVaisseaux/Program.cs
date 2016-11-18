@@ -10,8 +10,12 @@ namespace JeuxVaisseaux
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
 
             //testfred
+=======
+            //Test Alex
+>>>>>>> origin/alex
         }
     }
 }
