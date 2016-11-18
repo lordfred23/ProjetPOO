@@ -8,5 +8,7 @@ namespace JeuxVaisseaux
 {
     class HeavyShip
     {
+        public HeavyShip()
+        { }
     }
 }
