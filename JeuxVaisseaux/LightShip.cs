@@ -8,5 +8,9 @@ namespace JeuxVaisseaux
 {
     class LightShip
     {
+        public LightShip()
+        {
+
+        }
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class cShip
+    class Ship
     {
+        public Ship()
+        {
+            //test
+        }
     }
 }
