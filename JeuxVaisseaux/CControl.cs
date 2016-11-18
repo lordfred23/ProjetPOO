@@ -10,7 +10,9 @@ namespace JeuxVaisseaux
     {
         public CControl()
         {
-            string test = "hello";
+            
         }
+        
     }
+
 }

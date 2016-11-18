@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class CAffichage
+    class HeavyShip
     {
-        public CAffichage()
-        {
-
-        }
     }
 }
