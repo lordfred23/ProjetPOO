@@ -10,7 +10,7 @@ namespace JeuxVaisseaux
     {
         public CControl()
         {
-          
+            Jouer();
         }
 
         public void Jouer()
@@ -28,6 +28,16 @@ namespace JeuxVaisseaux
         }
 
         private void Cree_Centre_trie()
+        {
+
+        }
+
+        private void Retour_Au_Depart()
+        {
+
+        }
+
+        private void Compter_Matiere()
         {
 
         }
