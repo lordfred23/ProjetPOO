@@ -10,8 +10,29 @@ namespace JeuxVaisseaux
     {
         public CControl()
         {
-            
+          
         }
+
+        public void Jouer()
+        {
+
+        }
+        private void Cree_Vaisseaux()
+        {
+
+        }
+
+        private void Remplir_vaisseaux()
+        {
+
+        }
+
+        private void Cree_Centre_trie()
+        {
+
+        }
+
+
         
     }
 
