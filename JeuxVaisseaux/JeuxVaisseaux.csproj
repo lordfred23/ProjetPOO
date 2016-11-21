@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CAffichage.cs" />
     <Compile Include="CControl.cs" />
+    <Compile Include="Ctri.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="HeavyShip.cs" />
     <Compile Include="LightShip.cs" />

@@ -32,8 +32,16 @@ namespace JeuxVaisseaux
 
         }
 
+        private bool IsEven(int i)
+        {
+            if (i % 2 == 0)
+                return true;
+            else
+                return false;
+        }
 
-        
+
+
     }
 
 }

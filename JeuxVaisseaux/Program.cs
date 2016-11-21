@@ -10,12 +10,7 @@ namespace JeuxVaisseaux
     {
         static void Main(string[] args)
         {
-
-
-
            
-
-
             //testfred
 
             //Test Alex
