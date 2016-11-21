@@ -46,11 +46,16 @@
     <Compile Include="CAffichage.cs" />
     <Compile Include="CControl.cs" />
     <Compile Include="Ctri.cs" />
+    <Compile Include="Feraille.cs" />
+    <Compile Include="Papier.cs" />
+    <Compile Include="Plastique.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="HeavyShip.cs" />
     <Compile Include="LightShip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Terre.cs" />
+    <Compile Include="Verre.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
