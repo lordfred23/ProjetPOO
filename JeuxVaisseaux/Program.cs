@@ -10,11 +10,6 @@ namespace JeuxVaisseaux
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-           
-=======
-
->>>>>>> origin/Alex
             //testfred
 
             //Test Alex
