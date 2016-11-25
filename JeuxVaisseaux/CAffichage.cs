@@ -45,9 +45,6 @@ namespace JeuxVaisseaux
             Console.CursorLeft = 2;
             Console.CursorTop = 16;
             Console.Write("Option : ");
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
             choix = Console.ReadLine();
             //try
             //{
@@ -58,9 +55,7 @@ namespace JeuxVaisseaux
             //    else
             //        affichage();
             //}
-            //catch { affichage(); }            
-=======
->>>>>>> 7ef8e628f6aa17133c597de5bbe4365bfbb4689a
+            //catch { affichage(); }
             try
             {
                 choix = Convert.ToInt32(Console.ReadLine());
@@ -70,10 +65,6 @@ namespace JeuxVaisseaux
             {
                 CC.Jouer(choix);
             }
-<<<<<<< HEAD
-=======
->>>>>>> origin/Alex
->>>>>>> 7ef8e628f6aa17133c597de5bbe4365bfbb4689a
         }
     }
 }

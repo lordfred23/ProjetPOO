@@ -15,23 +15,12 @@ namespace JeuxVaisseaux
         {
             if (choix == 0)
                 Environment.Exit(0);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
             Determiner_NombreVaisseaux(choix);
-            
->>>>>>> 7ef8e628f6aa17133c597de5bbe4365bfbb4689a
         }
         private void Cree_Vaisseaux(int choix)
         {
-<<<<<<< HEAD
-=======
             Cree_Vaisseaux(choix * 100);
             Cree_Centre_trie(choix);
-
-
-=======
->>>>>>> origin/Alex
         }
         private void Cree_Vaisseaux(int nb)
         {
@@ -60,7 +49,6 @@ namespace JeuxVaisseaux
 
             }
             Console.ReadLine();
->>>>>>> 7ef8e628f6aa17133c597de5bbe4365bfbb4689a
 
         }
 
