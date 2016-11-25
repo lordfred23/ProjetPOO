@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class Terre
+    class Terre:CMatieres
     {
-        //test
+        int nbTerre;
+        public Terre(int nbMatiere) { nbTerre = nbMatiere; }
+
+        public int getTerre
+        {
+            get { return nbTerre; }
+        }
+
+        public int setTerre
+        {
+            set { nbTerre = value; }
+        }
     }
 }
