@@ -9,15 +9,16 @@ namespace JeuxVaisseaux
     class CControl
     {
         public CControl()
-        {
-            Jouer();
-        }
+        { }
 
-        public void Jouer()
+        public void Jouer(int choix)
         {
-
+            if (choix == 0)
+                Environment.Exit(0);
+            Cree_Vaisseaux(choix);
+            Cree_Centre_trie(choix);
         }
-        private void Cree_Vaisseaux()
+        private void Cree_Vaisseaux(int choix)
         {
 
         }
@@ -27,7 +28,7 @@ namespace JeuxVaisseaux
 
         }
 
-        private void Cree_Centre_trie()
+        private void Cree_Centre_trie(int choix)
         {
 
         }
