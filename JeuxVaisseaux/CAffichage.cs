@@ -16,7 +16,7 @@ namespace JeuxVaisseaux
 
         public void affichage()
         {
-            string choix = "";
+            int choix = 0;
             Console.Clear();
             Console.CursorLeft = 2;
             Console.CursorTop = 1;
@@ -45,17 +45,15 @@ namespace JeuxVaisseaux
             Console.CursorLeft = 2;
             Console.CursorTop = 16;
             Console.Write("Option : ");
-            choix = Console.ReadLine();
             try
             {
-                if ((Convert.ToInt32(choix) >= 0) || (Convert.ToInt32(choix) <= 5))
-                {
-                    CC.Jouer(Convert.ToInt32(choix));
-                }
-                else
-                    affichage();
+                choix = Convert.ToInt32(Console.ReadLine());
             }
-            catch { affichage(); }            
+            catch { affichage(); }
+            if ((choix >= 0) || (choix <= 5))
+            {
+                CC.Jouer(choix);
+            }
         }
     }
 }

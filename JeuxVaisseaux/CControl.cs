@@ -15,8 +15,6 @@ namespace JeuxVaisseaux
         {
             if (choix == 0)
                 Environment.Exit(0);
-            Cree_Vaisseaux(choix);
-            Cree_Centre_trie(choix);
         }
         private void Cree_Vaisseaux(int choix)
         {
@@ -30,7 +28,16 @@ namespace JeuxVaisseaux
 
         private void Cree_Centre_trie(int choix)
         {
-
+            Ctri centreTri;
+            List<Ctri> lstCentreTri = new List<Ctri>();
+            for(int i = 1; i <= (choix*10); i++)
+            {
+                if ((i % 2) == 0)
+                    centreTri = new Ctri(true);
+                else
+                    centreTri = new Ctri(false);
+                lstCentreTri.Add(centreTri);
+            }
         }
 
         private void Retour_Au_Depart()

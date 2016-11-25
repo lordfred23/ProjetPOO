@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class Verre
+    class Verre:CMatieres
     {
-        //test
+        int nbVerre;
+        public Verre(int nbMatiere) { nbVerre = nbMatiere; }
+
+        public int getVerre
+        {
+            get { return nbVerre; }
+        }
+
+        public int setVerre
+        {
+            set { nbVerre = value; }
+        }
     }
 }
