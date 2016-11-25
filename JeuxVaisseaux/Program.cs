@@ -10,15 +10,11 @@ namespace JeuxVaisseaux
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-           
-=======
-
->>>>>>> origin/Alex
-            //testfred
-
-            //Test Alex
-
+            CAffichage CA = new CAffichage();
+            while (true)
+            {
+                CA.affichage();
+            }            
         }
     }
 }

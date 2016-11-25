@@ -8,5 +8,6 @@ namespace JeuxVaisseaux
 {
     class Papier
     {
+        //test
     }
 }
