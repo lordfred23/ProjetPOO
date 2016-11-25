@@ -46,16 +46,16 @@ namespace JeuxVaisseaux
             Console.CursorTop = 16;
             Console.Write("Option : ");
             choix = Console.ReadLine();
-            try
-            {
-                if ((Convert.ToInt32(choix) >= 0) || (Convert.ToInt32(choix) <= 5))
-                {
+            //try
+            //{
+            //    if ((Convert.ToInt32(choix) >= 0) || (Convert.ToInt32(choix) <= 5))
+            //    {
                     CC.Jouer(Convert.ToInt32(choix));
-                }
-                else
-                    affichage();
-            }
-            catch { affichage(); }            
+            //    }
+            //    else
+            //        affichage();
+            //}
+            //catch { affichage(); }            
         }
     }
 }
