@@ -9,12 +9,15 @@ namespace JeuxVaisseaux
     class Ctri
     {
         //int papier, verre, plastique, ferraille, terreConta;
-        int[] tabMax = new int[4];
+        int[] tabMax = new int[5];
         public Ctri(bool x)
         {
             Determiner_Taille(x);
             Creer_Pile();
         }
+
+        public int[] getTabMax
+        { get { return tabMax; } }
 
         /*public int getPapier
         { get{ return papier; } }
@@ -65,8 +68,7 @@ namespace JeuxVaisseaux
                 tabMax[1] =857;
                 tabMax[2] =3456;
                 tabMax[3] =457;
-                tabMax[4] =639;
-                
+                tabMax[4] =639;                
             }
             else
             {
@@ -77,7 +79,5 @@ namespace JeuxVaisseaux
                 tabMax[4] = 8234;
             }
         }
-        
-
     }
 }
