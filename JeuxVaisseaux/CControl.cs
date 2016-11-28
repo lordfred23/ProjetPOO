@@ -38,13 +38,11 @@ namespace JeuxVaisseaux
                 {
                     tabRess = Remplir_vaisseaux(108);
                     ls = new LightShip(tabRess[0], tabRess[1], tabRess[2], tabRess[3], tabRess[4]);
-                    Console.WriteLine(i + " Light : " + ls.getPapier + " " + ls.getVerre + " " + ls.getPlastique + " " + ls.getFerraille + " " + ls.getTerreConta);
                 }
                 else
                 {
                     tabRess = Remplir_vaisseaux(367);
                     hs = new HeavyShip(tabRess[0], tabRess[1], tabRess[2], tabRess[3], tabRess[4]);
-                    Console.WriteLine(i + " Heavy : " + hs.getPapier + " " + hs.getVerre + " " + hs.getPlastique + " " + hs.getFerraille + " " + hs.getTerreConta);
                 }
             }
             Console.ReadLine();

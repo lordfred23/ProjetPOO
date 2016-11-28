@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="CAffichage.cs" />
     <Compile Include="CControl.cs" />
+    <Compile Include="CMatieres.cs" />
     <Compile Include="Ctri.cs" />
     <Compile Include="Feraille.cs" />
     <Compile Include="Papier.cs" />
