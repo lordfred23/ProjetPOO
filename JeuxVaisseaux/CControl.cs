@@ -17,15 +17,11 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
-            
-
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
             Cree_Vaisseaux(choix * 100);
             Cree_Centre_trie(choix);
-
-
         }
         private void Cree_Vaisseaux(int nb)
         {
@@ -50,11 +46,8 @@ namespace JeuxVaisseaux
                     hs = new HeavyShip(tabRess[0], tabRess[1], tabRess[2], tabRess[3], tabRess[4]);
                     Console.WriteLine(i + " Heavy : " + hs.getPapier + " " + hs.getVerre + " " + hs.getPlastique + " " + hs.getFerraille + " " + hs.getTerreConta);
                 }
-
-
             }
             Console.ReadLine();
-
         }
 
         private int[] Remplir_vaisseaux(int reste)
@@ -75,12 +68,8 @@ namespace JeuxVaisseaux
                     tabRess[4 - i] = rest;
                     rest = rest - tabRess[4 - i];
                 }
-
             }
             return tabRess;
-
-
-
         }
 
         private void Cree_Centre_trie(int choix)
@@ -114,9 +103,6 @@ namespace JeuxVaisseaux
             else
                 return false;
         }
-
-
-
     }
 
 }

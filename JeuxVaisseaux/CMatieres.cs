@@ -9,7 +9,5 @@ namespace JeuxVaisseaux
     class CMatieres
     {
         public CMatieres() { }
-
-
     }
 }

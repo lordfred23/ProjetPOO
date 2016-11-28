@@ -65,8 +65,7 @@ namespace JeuxVaisseaux
                 tabMax[1] =857;
                 tabMax[2] =3456;
                 tabMax[3] =457;
-                tabMax[4] =639;
-                
+                tabMax[4] =639;                
             }
             else
             {
@@ -77,7 +76,5 @@ namespace JeuxVaisseaux
                 tabMax[4] = 8234;
             }
         }
-        
-
     }
 }
