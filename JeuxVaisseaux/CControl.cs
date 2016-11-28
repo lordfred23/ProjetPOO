@@ -9,6 +9,8 @@ namespace JeuxVaisseaux
     class CControl
     {
         Random rnd = new Random();
+        Ctri[] tabCentreTri;
+        Stack<Ship> fileVaisseau = new Stack<Ship>();
         public CControl()
         { }
 
@@ -17,6 +19,7 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
+            Debut_Jeu();
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
@@ -38,14 +41,15 @@ namespace JeuxVaisseaux
                 {
                     tabRess = Remplir_vaisseaux(108);
                     ls = new LightShip(tabRess[0], tabRess[1], tabRess[2], tabRess[3], tabRess[4]);
+                    fileVaisseau.Push(ls);
                 }
                 else
                 {
                     tabRess = Remplir_vaisseaux(367);
                     hs = new HeavyShip(tabRess[0], tabRess[1], tabRess[2], tabRess[3], tabRess[4]);
+                    fileVaisseau.Push(hs);
                 }
             }
-            Console.ReadLine();
         }
 
         private int[] Remplir_vaisseaux(int reste)
@@ -73,15 +77,25 @@ namespace JeuxVaisseaux
         private void Cree_Centre_trie(int choix)
         {
             Ctri centreTri;
-            List<Ctri> lstCentreTri = new List<Ctri>();
+            tabCentreTri = new Ctri[choix*10];
             for(int i = 1; i <= (choix*10); i++)
             {
                 if (IsEven(i))
                     centreTri = new Ctri(true);
                 else
                     centreTri = new Ctri(false);
-                lstCentreTri.Add(centreTri);
+                tabCentreTri[i - 1] = centreTri;
             }
+        }
+
+        private void Debut_Jeu()
+        {
+            Vider_Vaisseau();
+        }
+
+        private void Vider_Vaisseau()
+        {
+
         }
 
         private void Retour_Au_Depart()

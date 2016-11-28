@@ -8,6 +8,8 @@ namespace JeuxVaisseaux
 {
     class Ctri
     {
+        Queue<Ship> fileArriver = new Queue<Ship>();
+        Queue<Ship> fileDepart = new Queue<Ship>();
         //int papier, verre, plastique, ferraille, terreConta;
         int[] tabMax = new int[5];
         public Ctri(bool x)
@@ -18,6 +20,18 @@ namespace JeuxVaisseaux
 
         public int[] getTabMax
         { get { return tabMax; } }
+
+        public Queue<Ship> getFileArriver
+        { get { return fileArriver; } }
+
+        public Queue<Ship> setFileArriver
+        { set { fileArriver = value; } }
+
+        public Queue<Ship> getFileDepart
+        { get { return fileDepart; } }
+
+        public Queue<Ship> setFileDepart
+        { set { fileDepart = value; } }
 
         /*public int getPapier
         { get{ return papier; } }
