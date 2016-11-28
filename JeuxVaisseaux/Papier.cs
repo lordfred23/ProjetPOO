@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class Papier
+    class Papier:CMatieres
     {
-        //test
+        int nbPapier;
+        public Papier(int nbMatiere) { nbPapier = nbMatiere; }
+
+        public int getPapier
+        {
+            get { return nbPapier; }
+        }
+
+        public int setPapier
+        {
+            set { nbPapier = value; }
+        }
     }
 }

@@ -8,14 +8,15 @@ namespace JeuxVaisseaux
 {
     class Ctri
     {
-        int papier, verre, plastique, ferraille, terreConta;
+        //int papier, verre, plastique, ferraille, terreConta;
         int[] tabMax = new int[4];
         public Ctri(bool x)
         {
-
+            Determiner_Taille(x);
+            Creer_Pile();
         }
 
-        public int getPapier
+        /*public int getPapier
         { get{ return papier; } }
         public int setPapier
         { set { papier = value; }  }
@@ -38,8 +39,22 @@ namespace JeuxVaisseaux
         public int getTerreConta
         { get { return terreConta; } }
         public int setTerreConta
-        { set { terreConta = value; } }
+        { set { terreConta = value; } }*/
 
+        private void Creer_Pile()
+        {
+            Papier papier = new Papier(0);
+            Verre verre = new Verre(0);
+            Plastique plastique = new Plastique(0);
+            Feraille feraille = new Feraille(0);
+            Terre terre = new Terre(0);
+            List<CMatieres> lstMatiere = new List<CMatieres>();
+            lstMatiere.Add(papier);
+            lstMatiere.Add(verre);
+            lstMatiere.Add(plastique);
+            lstMatiere.Add(feraille);
+            lstMatiere.Add(terre);
+        }
 
         private void Determiner_Taille(bool x)
         {

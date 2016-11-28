@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace JeuxVaisseaux
 {
-    class Feraille
+    class Feraille:CMatieres
     {
-        //test
+        int nbFeraille;
+        public Feraille(int nbMatiere) { nbFeraille = nbMatiere; }
+
+        public int getFeraille
+        {
+            get { return nbFeraille; }
+        }
+
+        public int setFeraille
+        {
+            set { nbFeraille = value; }
+        }
     }
 }
