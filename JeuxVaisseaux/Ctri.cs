@@ -8,6 +8,7 @@ namespace JeuxVaisseaux
 {
     class Ctri
     {
+<<<<<<< HEAD
         Stack<Papier> pilePapier;
         Stack<Verre> pileVerre;
         Stack<Plastique> pilePlastique;
@@ -15,6 +16,11 @@ namespace JeuxVaisseaux
         Stack<Terre> pileTerre;
 
 
+=======
+        Queue<Ship> fileArriver = new Queue<Ship>();
+        Queue<Ship> fileDepart = new Queue<Ship>();
+        //int papier, verre, plastique, ferraille, terreConta;
+>>>>>>> Alex
         int[] tabMax = new int[5];
         public Ctri(bool x)
         {
@@ -25,6 +31,7 @@ namespace JeuxVaisseaux
         public int[] getTabMax
         { get { return tabMax; } }
 
+<<<<<<< HEAD
         public Stack<Papier> getPilePapier
         { get { return pilePapier; } }
         public Stack<Papier> setPilePapier
@@ -45,6 +52,29 @@ namespace JeuxVaisseaux
         { get { return pileTerre; } }
         public Stack<Terre> setPileTerre
         { set { pileTerre = value; } }
+=======
+        public Queue<Ship> getFileArriver
+        { get { return fileArriver; } }
+
+        public Queue<Ship> setFileArriver
+        { set { fileArriver = value; } }
+
+        public Queue<Ship> getFileDepart
+        { get { return fileDepart; } }
+
+        public Queue<Ship> setFileDepart
+        { set { fileDepart = value; } }
+
+        /*public int getPapier
+        { get{ return papier; } }
+        public int setPapier
+        { set { papier = value; }  }
+
+        public int getVerre
+        { get { return verre; } }
+        public int setVerre
+        { set { verre = value; } }
+>>>>>>> Alex
 
 
 
