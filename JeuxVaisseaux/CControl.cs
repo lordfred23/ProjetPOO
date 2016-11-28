@@ -22,17 +22,8 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
-<<<<<<< HEAD
+
             Debut_Jeu(choix);
-=======
-
-            //test du push
-            
-
-
-            Debut_Jeu();
-
->>>>>>> Fred
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
@@ -135,7 +126,7 @@ namespace JeuxVaisseaux
             for (int i = 1; i <= vaisseau.getPapier; i++)
             {
                 pilePapier = centreTri.getPilePapier;
-                if (isCtriFull(centreTri))
+                if (IsCTriFull(centreTri))
                 {
                     pilePapier.Push(papier);
                     centreTri.setPilePapier = pilePapier;
@@ -152,7 +143,7 @@ namespace JeuxVaisseaux
             for (int i = 1; i <= vaisseau.getVerre; i++)
             {
                 pileVerre = centreTri.getPileVerre;
-                if (isCtriFull(centreTri))
+                if (IsCTriFull(centreTri))
                 {
                     pileVerre.Push(verre);
                     centreTri.setPileVerre = pileVerre;
@@ -169,7 +160,7 @@ namespace JeuxVaisseaux
             for (int i = 1; i <= vaisseau.getPlastique; i++)
             {
                 pilePlastique = centreTri.getPilePlastique;
-                if (isCtriFull(centreTri))
+                if (IsCTriFull(centreTri))
                 {
                     pilePlastique.Push(plastique);
                     centreTri.setPilePlastique = pilePlastique;
@@ -186,7 +177,7 @@ namespace JeuxVaisseaux
             for (int i = 1; i <= vaisseau.getFerraille; i++)
             {
                 pileFerraille = centreTri.getPileFerraile;
-                if (isCtriFull(centreTri))
+                if (IsCTriFull(centreTri))
                 {
                     pileFerraille.Push(feraille);
                     centreTri.setPileFerraille = pileFerraille;
@@ -203,7 +194,7 @@ namespace JeuxVaisseaux
             for (int i = 1; i <= vaisseau.getTerreConta; i++)
             {
                 pileTerre = centreTri.getPileTerre;
-                if (isCtriFull(centreTri))
+                if (IsCTriFull(centreTri))
                 {
                     pileTerre.Push(terre);
                     centreTri.setPileTerre = pileTerre;
