@@ -10,6 +10,7 @@ namespace JeuxVaisseaux
     {
         Random rnd = new Random();
         Ctri[] tabCentreTri;
+        Ship vaisseau;
         Stack<Ship> fileVaisseau = new Stack<Ship>();
         public CControl()
         { }
@@ -19,7 +20,7 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
-            Debut_Jeu();
+            Debut_Jeu(choix);
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
@@ -88,14 +89,121 @@ namespace JeuxVaisseaux
             }
         }
 
-        private void Debut_Jeu()
+        private void Debut_Jeu(int choix)
         {
-            Vider_Vaisseau();
+            Queue<Ship> fileDepart;
+            for (int i = 0; i <= choix * 10; i++)
+            {
+                fileDepart = tabCentreTri[i].getFileDepart;
+                do
+                {
+                    Vider_Vaisseau(fileVaisseau.Peek(),tabCentreTri[i]);
+                    fileDepart.Enqueue(fileVaisseau.Peek());
+                    tabCentreTri[i].setFileDepart = fileDepart;
+                    fileVaisseau.Pop();
+                } while (fileVaisseau.Count() == 0);
+                if (i != 9)
+                    tabCentreTri[i + 1].setFileArriver = fileDepart;
+            }
         }
 
-        private void Vider_Vaisseau()
+        private void Vider_Vaisseau(Ship vaisseau,Ctri centreTri)
         {
+            Stack<Papier> pilePapier;
+            Stack<Verre> pileVerre;
+            Stack<Plastique> pilePlastique;
+            Stack<Feraille> pileFerraille;
+            Stack<Terre> pileTerre;
+            Papier papier = new Papier(0);
+            Verre verre = new Verre(0);
+            Plastique plastique = new Plastique(0);
+            Feraille feraille = new Feraille(0);
+            Terre terre = new Terre(0);
+            //Papier
+            for (int i = 1; i <= vaisseau.getPapier; i++)
+            {
+                pilePapier = centreTri.getPilePapier;
+                if (isCtriFull(centreTri))
+                {
+                    pilePapier.Push(papier);
+                    centreTri.setPilePapier = pilePapier;
+                }
+                else
+                {
+                    do
+                    {
 
+                    } while (pilePapier.Count == 0);
+                }
+            }
+            //Verre
+            for (int i = 1; i <= vaisseau.getVerre; i++)
+            {
+                pileVerre = centreTri.getPileVerre;
+                if (isCtriFull(centreTri))
+                {
+                    pileVerre.Push(verre);
+                    centreTri.setPileVerre = pileVerre;
+                }
+                else
+                {
+                    do
+                    {
+
+                    } while (pileVerre.Count == 0);
+                }
+            }
+            //Plastique
+            for (int i = 1; i <= vaisseau.getPlastique; i++)
+            {
+                pilePlastique = centreTri.getPilePlastique;
+                if (isCtriFull(centreTri))
+                {
+                    pilePlastique.Push(plastique);
+                    centreTri.setPilePlastique = pilePlastique;
+                }
+                else
+                {
+                    do
+                    {
+
+                    } while (pilePlastique.Count == 0);
+                }
+            }
+            //Feraille
+            for (int i = 1; i <= vaisseau.getFerraille; i++)
+            {
+                pileFerraille = centreTri.getPileFerraile;
+                if (isCtriFull(centreTri))
+                {
+                    pileFerraille.Push(feraille);
+                    centreTri.setPileFerraille = pileFerraille;
+                }
+                else
+                {
+                    do
+                    {
+
+                    } while (pileFerraille.Count == 0);
+                }
+            }
+            //Terre Contaminé
+            for (int i = 1; i <= vaisseau.getTerreConta; i++)
+            {
+                pileTerre = centreTri.getPileTerre;
+                if (isCtriFull(centreTri))
+                {
+                    pileTerre.Push(terre);
+                    centreTri.setPileTerre = pileTerre;
+                }
+                else
+                {
+                    do
+                    {
+
+                    } while (pileTerre.Count == 0);
+                }
+            }
         }
 
         private void Retour_Au_Depart()

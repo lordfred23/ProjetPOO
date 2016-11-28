@@ -8,7 +8,6 @@ namespace JeuxVaisseaux
 {
     class Ctri
     {
-
         Stack<Papier> pilePapier;
         Stack<Verre> pileVerre;
         Stack<Plastique> pilePlastique;
@@ -27,8 +26,6 @@ namespace JeuxVaisseaux
 
         public int[] getTabMax
         { get { return tabMax; } }
-
-
         public Stack<Papier> getPilePapier
         { get { return pilePapier; } }
         public Stack<Papier> setPilePapier
@@ -58,19 +55,13 @@ namespace JeuxVaisseaux
         public Queue<Ship> setFileDepart
         { set { fileDepart = value; } }
 
-        
-
-
-
-
         private void Creer_Pile()
         {
             Stack<Papier> pilePapier = new Stack<Papier>();
             Stack<Verre> pileVerre = new Stack<Verre>();
             Stack<Plastique> pilePlastique = new Stack<Plastique>();
             Stack<Feraille> pileFerraille = new Stack<Feraille>();
-            Stack<Terre> pileTerre = new Stack<Terre>();
-            
+            Stack<Terre> pileTerre = new Stack<Terre>();            
         }
 
         private void Determiner_Taille(bool x)
