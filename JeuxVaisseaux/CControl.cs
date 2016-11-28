@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,7 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
+            //test du push
             
         }
         private void Determiner_NombreVaisseaux(int choix)
