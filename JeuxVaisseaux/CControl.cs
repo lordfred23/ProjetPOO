@@ -21,16 +21,13 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
             //test du push
             
 
-=======
->>>>>>> Test
-=======
+
             Debut_Jeu();
->>>>>>> Test
+
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
