@@ -8,7 +8,13 @@ namespace JeuxVaisseaux
 {
     class Ctri
     {
-        //int papier, verre, plastique, ferraille, terreConta;
+        Stack<Papier> pilePapier;
+        Stack<Verre> pileVerre;
+        Stack<Plastique> pilePlastique;
+        Stack<Feraille> pileFerraille;
+        Stack<Terre> pileTerre;
+
+
         int[] tabMax = new int[5];
         public Ctri(bool x)
         {
@@ -19,44 +25,38 @@ namespace JeuxVaisseaux
         public int[] getTabMax
         { get { return tabMax; } }
 
-        /*public int getPapier
-        { get{ return papier; } }
-        public int setPapier
-        { set { papier = value; }  }
+        public Stack<Papier> getPilePapier
+        { get { return pilePapier; } }
+        public Stack<Papier> setPilePapier
+        { set {  pilePapier=value; } }
+        public Stack<Verre> getPileVerre
+        { get{ return pileVerre; } }
+        public Stack<Verre> setPileVerre
+        { set { pileVerre=value; } }
+        public Stack<Plastique> getPilePlastique
+        { get { return pilePlastique; } }
+        public Stack<Plastique> setPilePlastique
+        { set { pilePlastique = value; } }
+        public Stack<Feraille> getPileFerraile
+        { get { return pileFerraille; } }
+        public Stack<Feraille> setPileFerraille
+        { set { pileFerraille = value; } }
+        public Stack<Terre> getPileTerre
+        { get { return pileTerre; } }
+        public Stack<Terre> setPileTerre
+        { set { pileTerre = value; } }
 
-        public int getVerre
-        { get { return verre; } }
-        public int setVerre
-        { set { verre = value; } }
 
-        public int getPlastique
-        { get { return plastique; } }
-        public int setPlastique
-        { set { plastique = value; } }
 
-        public int getFerraille
-        { get { return ferraille; } }
-        public int setFerraille
-        { set { ferraille = value; } }
-
-        public int getTerreConta
-        { get { return terreConta; } }
-        public int setTerreConta
-        { set { terreConta = value; } }*/
 
         private void Creer_Pile()
         {
-            Papier papier = new Papier(0);
-            Verre verre = new Verre(0);
-            Plastique plastique = new Plastique(0);
-            Feraille feraille = new Feraille(0);
-            Terre terre = new Terre(0);
-            List<CMatieres> lstMatiere = new List<CMatieres>();
-            lstMatiere.Add(papier);
-            lstMatiere.Add(verre);
-            lstMatiere.Add(plastique);
-            lstMatiere.Add(feraille);
-            lstMatiere.Add(terre);
+            Stack<Papier> pilePapier = new Stack<Papier>();
+            Stack<Verre> pileVerre = new Stack<Verre>();
+            Stack<Plastique> pilePlastique = new Stack<Plastique>();
+            Stack<Feraille> pileFerraille = new Stack<Feraille>();
+            Stack<Terre> pileTerre = new Stack<Terre>();
+            
         }
 
         private void Determiner_Taille(bool x)
