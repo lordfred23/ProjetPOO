@@ -123,6 +123,52 @@ namespace JeuxVaisseaux
             else
                 return false;
         }
+        private bool IsCTriFull(Ctri ct)
+        {
+            Stack<Papier> pilePapier=ct.getPilePapier;
+            Stack<Verre> pileVerre=ct.getPileVerre;
+            Stack<Plastique> pilePlastique=ct.getPilePlastique;
+            Stack<Feraille> pileFerraille=ct.getPileFerraile;
+            Stack<Terre> pileTerre=ct.getPileTerre;
+
+
+            if (pilePapier.Count() == ct.getTabMax[0])
+            {
+                return false;
+            }
+            else
+            {
+                if (pileVerre.Count() == ct.getTabMax[1])
+                {
+                    return false;
+                }
+                else
+                {
+                    if (pilePlastique.Count() == ct.getTabMax[2])
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        if (pileFerraille.Count() == ct.getTabMax[3])
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            if (pileTerre.Count() == ct.getTabMax[4])
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
