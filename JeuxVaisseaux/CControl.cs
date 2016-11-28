@@ -92,7 +92,7 @@ namespace JeuxVaisseaux
             List<Ctri> lstCentreTri = new List<Ctri>();
             for(int i = 1; i <= (choix*10); i++)
             {
-                if ((i % 2) == 0)
+                if (IsEven(i))
                     centreTri = new Ctri(true);
                 else
                     centreTri = new Ctri(false);
