@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,17 @@ namespace JeuxVaisseaux
             if (choix == 0)
                 Environment.Exit(0);
             Determiner_NombreVaisseaux(choix);
+<<<<<<< HEAD
             Debut_Jeu(choix);
+=======
+
+            //test du push
+            
+
+
+            Debut_Jeu();
+
+>>>>>>> Fred
         }
         private void Determiner_NombreVaisseaux(int choix)
         {
@@ -222,6 +234,52 @@ namespace JeuxVaisseaux
                 return true;
             else
                 return false;
+        }
+        private bool IsCTriFull(Ctri ct)
+        {
+            Stack<Papier> pilePapier=ct.getPilePapier;
+            Stack<Verre> pileVerre=ct.getPileVerre;
+            Stack<Plastique> pilePlastique=ct.getPilePlastique;
+            Stack<Feraille> pileFerraille=ct.getPileFerraile;
+            Stack<Terre> pileTerre=ct.getPileTerre;
+
+
+            if (pilePapier.Count() == ct.getTabMax[0])
+            {
+                return false;
+            }
+            else
+            {
+                if (pileVerre.Count() == ct.getTabMax[1])
+                {
+                    return false;
+                }
+                else
+                {
+                    if (pilePlastique.Count() == ct.getTabMax[2])
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        if (pileFerraille.Count() == ct.getTabMax[3])
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            if (pileTerre.Count() == ct.getTabMax[4])
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
