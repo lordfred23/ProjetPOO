@@ -11,20 +11,39 @@ namespace JeuxVaisseaux
     class CControl
     {
         Random rnd = new Random();
+        CAffichage ca = new CAffichage();
         Ctri[] tabCentreTri;
-        Ship vaisseau;
+        //Ship vaisseau;
         Stack<Ship> fileVaisseau = new Stack<Ship>();
         public CControl()
         { }
 
-        public void Jouer(int choix)
+        public void Jouer()
         {
+            int choix = ca.affichage();
             if (choix == 0)
+            {
                 Environment.Exit(0);
-            Determiner_NombreVaisseaux(choix);
-
-            Debut_Jeu(choix);
+            }
+            else
+            {
+                if (choix != 40)
+                {
+                    Determiner_NombreVaisseaux(choix);
+                    Debut_Jeu(choix);
+                }
+                else
+                {
+                    Jouer();
+                }
+                    
+            }
+                 
+                
+           
+            
         }
+        
         private void Determiner_NombreVaisseaux(int choix)
         {
             Cree_Vaisseaux(choix * 100);
@@ -54,6 +73,9 @@ namespace JeuxVaisseaux
                     fileVaisseau.Push(hs);
                 }
             }
+            ca.Affichage_Vaisseaux(fileVaisseau);
+            Console.ReadLine();
+            
         }
 
         private int[] Remplir_vaisseaux(int reste)
