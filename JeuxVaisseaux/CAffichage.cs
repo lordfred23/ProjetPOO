@@ -55,16 +55,16 @@ namespace JeuxVaisseaux
         public void Affichage_Vaisseaux(Stack<Ship> fileVaisseau)
         {
             Ship vaisseaux;
-            int x, y,i;
+            int x, i;
             x = 0;
-            Console.Clear();
+            
 
-            for(i=1;i<fileVaisseau.Count();i++)
+            for (i = 1; i < fileVaisseau.Count(); i++)
             {
                 vaisseaux = fileVaisseau.Pop();
-                
+
                 Console.SetCursorPosition(0, x);
-                Console.Write(i+": ");
+                Console.Write(i + ": ");
                 Console.SetCursorPosition(5, x);
                 Console.Write(vaisseaux.getPapier);
                 Console.SetCursorPosition(10, x);
@@ -84,7 +84,23 @@ namespace JeuxVaisseaux
 
 
             }
-            
+        }
+        public void Afficher_Final(Ctri tri,int i)
+        {
+            //int papier, verre, plastique, ferraille, terreConta;
+            Console.WriteLine("----------Centre de tri " + i + "  ----------");
+            Console.WriteLine("       --Nombre de vaisseaux--               ");
+            Console.WriteLine("           File d'arrivée :"+tri.getFileArriver.Count()+"                ");
+            Console.WriteLine("           File départ :" + tri.getFileDepart.Count() + "");
+            Console.WriteLine("       --Nombre de matériaux--               ");
+            Console.WriteLine("           Papier :" + tri.getPilePapier.Count() + "");
+            Console.WriteLine("           Papier :" + tri.getPileVerre.Count() + "");
+            Console.WriteLine("           Papier :" + tri.getPilePlastique.Count() + "");
+            Console.WriteLine("           Papier :" + tri.getPileFerraile.Count() + "");
+            Console.WriteLine("           Papier :" + tri.getPileTerre.Count() + "");
+
+
+
         }
     }
 }

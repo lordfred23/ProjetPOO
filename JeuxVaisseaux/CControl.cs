@@ -332,6 +332,14 @@ namespace JeuxVaisseaux
                 }
             }
         }
+        private void ControlAffichageFin()
+        {
+            int i;
+            for(i=0;i<5;i++)
+            {
+                ca.Afficher_Final(tabCentreTri[i], i++);
+            }
+        }
     }
 
 }
