@@ -106,10 +106,7 @@ namespace JeuxVaisseaux
             tabCentreTri = new Ctri[choix*10];
             for(int i = 1; i <= (choix*10); i++)
             {
-                if (IsEven(i))
-                    centreTri = new Ctri(true);
-                else
-                    centreTri = new Ctri(false);
+                centreTri = new Ctri(IsEven(i),EstNombrePremier(i),EstMultipleCinq(i));
                 tabCentreTri[i - 1] = centreTri;
             }
         }
@@ -247,6 +244,47 @@ namespace JeuxVaisseaux
                 return true;
             else
                 return false;
+        }
+        public bool EstNombrePremier(double n)
+        {
+
+            int i;
+            int racine;
+            bool fini;
+            decimal debRacine = Convert.ToInt32(Math.Sqrt(n));
+            racine = Convert.ToInt32(Math.Truncate(debRacine));
+             fini = false;
+            i = 3;
+            if (n < 2) { fini = true; }
+            else if (n != 2)
+            {
+                if (n % 2 == 0)
+                {
+                    fini = true;
+                }
+                else
+                {
+                    while ((!fini) && (i <= racine))
+                    { 
+                        if (n % i == 0) { fini = true; }
+                        else { i = i + 2; }
+
+                    }
+
+                 }
+
+            }
+             return (!fini);
+        }
+        private bool EstMultipleCinq(int i)
+        {
+            if (i % 5 == 0)
+                return true;
+            else
+                return false;
+            
+
+
         }
         private bool IsCTriFull(Ctri ct)
         {

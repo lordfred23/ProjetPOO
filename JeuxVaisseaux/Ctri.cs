@@ -18,9 +18,9 @@ namespace JeuxVaisseaux
         //int papier, verre, plastique, ferraille, terreConta;
 
         int[] tabMax = new int[5];
-        public Ctri(bool x)
+        public Ctri(bool x,bool nbPrem,bool multiple)
         {
-            Determiner_Taille(x);
+            Determiner_Taille(x,nbPrem,multiple);
             Creer_Pile();
         }
 
@@ -64,16 +64,45 @@ namespace JeuxVaisseaux
             Stack<Terre> pileTerre = new Stack<Terre>();            
         }
 
-        private void Determiner_Taille(bool x)
+        private void Determiner_Taille(bool x, bool nbPrem, bool multiple)
         {
             // Note : le tableaux [0]=Papier [1]=Verre [2]=Plastique [3]=Ferraille [4]=Terre Contaminées
-            if(x)
+            if (x)
             {
-                tabMax[0] =1003;
-                tabMax[1] =857;
-                tabMax[2] =3456;
-                tabMax[3] =457;
-                tabMax[4] =639;                
+                tabMax[0] = 1003;
+                tabMax[1] = 857;
+                tabMax[2] = 3456;
+                tabMax[3] = 457;
+                tabMax[4] = 639;
+                
+                if (nbPrem)
+                {
+                    tabMax[0] = 0;
+                    tabMax[1] = 0;
+                    tabMax[2] = 3456;
+                    tabMax[3] = 457;
+                    tabMax[4] = 0;
+                    if(multiple)
+                    {
+                        tabMax[0] = 0;
+                        tabMax[1] = 857;
+                        tabMax[2] = 0;
+                        tabMax[3] = 0;
+                        tabMax[4] = 639;
+                    }
+                }
+                else
+                {
+                    if (multiple)
+                    {
+                        tabMax[0] = 0;
+                        tabMax[1] = 857;
+                        tabMax[2] = 0;
+                        tabMax[3] = 0;
+                        tabMax[4] = 639;
+                    }
+                }
+                               
             }
             else
             {
@@ -82,6 +111,33 @@ namespace JeuxVaisseaux
                 tabMax[2] = 561;
                 tabMax[3] = 2658;
                 tabMax[4] = 8234;
+                if (nbPrem)
+                {
+                    tabMax[0] = 0;
+                    tabMax[1] = 0;
+                    tabMax[2] = 561;
+                    tabMax[3] = 2658;
+                    tabMax[4] = 0;
+                    if (multiple)
+                    {
+                        tabMax[0] = 0;
+                        tabMax[1] = 2456;
+                        tabMax[2] = 0;
+                        tabMax[3] = 0;
+                        tabMax[4] = 8234;
+                    }
+                }
+                else
+                {
+                    if (multiple)
+                    {
+                        tabMax[0] = 0;
+                        tabMax[1] = 2456;
+                        tabMax[2] = 0;
+                        tabMax[3] = 0;
+                        tabMax[4] = 8234;
+                    }
+                }
             }
         }
     }
