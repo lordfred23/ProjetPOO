@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -100,6 +98,7 @@ namespace JeuxVaisseaux
                 fileDepart = tabCentreTri[i].getFileDepart;
                 do
                 {
+                    //Utilise fileArriver puisque les prochain centreTri devront faire une deuxieme fonction pour vider
                     Vider_Vaisseau(fileVaisseau.Peek(),tabCentreTri[i]);
                     fileDepart.Enqueue(fileVaisseau.Peek());
                     tabCentreTri[i].setFileDepart = fileDepart;
@@ -133,10 +132,8 @@ namespace JeuxVaisseaux
                 }
                 else
                 {
-                    do
-                    {
-
-                    } while (pilePapier.Count == 0);
+                    Remplir_Vesseau_Depart(centreTri, pilePapier);
+                    i--;
                 }
             }
             //Verre
@@ -207,6 +204,17 @@ namespace JeuxVaisseaux
                     } while (pileTerre.Count == 0);
                 }
             }
+        }
+
+        private void Remplir_Vesseau_Depart(Ctri centreTri, Stack<Papier> pilePapier = null, Stack<Verre> pileVerre = null, Stack<Plastique> pilePlastique = null, Stack<Feraille> pileFeraille = null, Stack<Terre> pileTerre = null)
+        {
+            //Liste de Stack
+            do
+            {
+                //Chercher la matiere max
+                //boucle for avec le poid max du premier vesseau dans depart
+                //vider la pile dans le vesseau
+            } while (pile.Count == 0);
         }
 
         private void Retour_Au_Depart()
