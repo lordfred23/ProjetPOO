@@ -8,23 +8,18 @@ namespace JeuxVaisseaux
 {
     class HeavyShip:Ship
     {
-        private int _numero, _poidMax = 367;
+        private int _numero;
         public HeavyShip(int numero):base()
         {
             _numero = numero;
         }
 
-        public HeavyShip(int papier, int verre, int plastique, int ferraille, int terreConta) : base(papier, verre, plastique, ferraille, terreConta)
+        public HeavyShip(int papier, int verre, int plastique, int ferraille, int terreConta) : base(papier, verre, plastique, ferraille, terreConta, 367)
         { }
 
         public int getNumero
         {
             get { return _numero; }
-        }
-
-        public int getPoidMax
-        {
-            get { return _poidMax; }
         }
     }
 }
