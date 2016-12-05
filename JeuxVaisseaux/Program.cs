@@ -10,10 +10,10 @@ namespace JeuxVaisseaux
     {
         static void Main(string[] args)
         {
-            CAffichage CA = new CAffichage();
+            CControl cc = new CControl();
             while (true)
             {
-                CA.affichage();
+                cc.Jouer();
             }            
         }
     }

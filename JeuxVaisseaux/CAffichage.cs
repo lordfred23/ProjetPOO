@@ -8,13 +8,13 @@ namespace JeuxVaisseaux
 {
     class CAffichage
     {
-        CControl CC = new CControl();
+        
         public CAffichage()
         {
             affichage();
         }
 
-        public void affichage()
+        public int affichage()
         {
             int choix = 0;
             Console.Clear();
@@ -48,9 +48,43 @@ namespace JeuxVaisseaux
             try { choix = Convert.ToInt32(Console.ReadLine()); }
             catch { affichage(); }
             if ((choix >= 0) && (choix <= 5))
+                return choix;
+            else
+                return 40; 
+        }
+        public void Affichage_Vaisseaux(Stack<Ship> fileVaisseau)
+        {
+            Ship vaisseaux;
+            int x, y,i;
+            x = 0;
+            Console.Clear();
+
+            for(i=1;i<fileVaisseau.Count();i++)
             {
-                CC.Jouer(choix);
+                vaisseaux = fileVaisseau.Pop();
+                
+                Console.SetCursorPosition(0, x);
+                Console.Write(i+": ");
+                Console.SetCursorPosition(5, x);
+                Console.Write(vaisseaux.getPapier);
+                Console.SetCursorPosition(10, x);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Write(vaisseaux.getVerre);
+                Console.SetCursorPosition(15, x);
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write(vaisseaux.getPlastique);
+                Console.SetCursorPosition(20, x);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write(vaisseaux.getFerraille);
+                Console.SetCursorPosition(25, x);
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write(vaisseaux.getTerreConta);
+                x++;
+                Console.ForegroundColor = ConsoleColor.White;
+
+
             }
+            
         }
     }
 }
