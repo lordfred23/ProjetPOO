@@ -94,10 +94,10 @@ namespace JeuxVaisseaux
             Console.WriteLine("           File départ :" + tri.getFileDepart.Count() + "");
             Console.WriteLine("       --Nombre de matériaux--               ");
             Console.WriteLine("           Papier :" + tri.getPilePapier.Count() + "");
-            Console.WriteLine("           Papier :" + tri.getPileVerre.Count() + "");
-            Console.WriteLine("           Papier :" + tri.getPilePlastique.Count() + "");
-            Console.WriteLine("           Papier :" + tri.getPileFerraile.Count() + "");
-            Console.WriteLine("           Papier :" + tri.getPileTerre.Count() + "");
+            Console.WriteLine("           Verre :" + tri.getPileVerre.Count() + "");
+            Console.WriteLine("           Plastiqie :" + tri.getPilePlastique.Count() + "");
+            Console.WriteLine("           Ferraille :" + tri.getPileFerraile.Count() + "");
+            Console.WriteLine("           Terre Contaminé :" + tri.getPileTerre.Count() + "");
 
 
 
