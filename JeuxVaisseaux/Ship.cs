@@ -8,7 +8,7 @@ namespace JeuxVaisseaux
 {
     class Ship
     {
-        private int _papier, _verre, _plastique, _ferraille, _terreConta;
+        private int _papier, _verre, _plastique, _ferraille, _terreConta, _pdsMax;
         public Ship()
         {
             _papier = 1;
@@ -18,12 +18,13 @@ namespace JeuxVaisseaux
             _terreConta = 1;
         }
 
-        public Ship(int papier, int verre, int plastique, int ferraille, int terreConta){
+        public Ship(int papier, int verre, int plastique, int ferraille, int terreConta, int pdsMax){
             _papier = papier;
             _verre = verre;
             _plastique = plastique;
             _ferraille = ferraille;
             _terreConta = terreConta;
+            _pdsMax = pdsMax;
         }
 
         public int getPapier
@@ -50,5 +51,8 @@ namespace JeuxVaisseaux
         { get { return _terreConta; } }
         public int setTerreConta
         { set { _terreConta = value; } }
+
+        public int getPoidMax
+        { get { return _pdsMax; } }
     }
 }
