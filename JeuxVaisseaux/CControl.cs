@@ -148,6 +148,7 @@ namespace JeuxVaisseaux
             Feraille feraille = new Feraille(0);
             Terre terre = new Terre(0);
             //Papier
+            //--------------------------------------------------------------
             if(centreTri.getTabMax[0] != 0)
             {
                 for (int i = 1; i <= vaisseau.getPapier; i++)
@@ -179,8 +180,10 @@ namespace JeuxVaisseaux
                     }
                 }
             }
-            /*
+            //--------------------------------------------------------------
+
             //Verre
+            //--------------------------------------------------------------
             for (int i = 1; i <= vaisseau.getVerre; i++)
             {
                 pileVerre = centreTri.getPileVerre;
@@ -193,11 +196,26 @@ namespace JeuxVaisseaux
                 {
                     do
                     {
-
+                        Ship ship = fileDepart.Dequeue();
+                        for (int u = 0; u < ship.getPoidMax; u++)
+                        {
+                            if (pileVerre.Count != 0)
+                                pileVerre.Pop();
+                            else
+                            {
+                                ship.setVerre = u;
+                                u = 368;
+                            }
+                        }
+                        fileDepart.Enqueue(ship);
                     } while (pileVerre.Count == 0);
+                    i--;
                 }
             }
+            //--------------------------------------------------------------
+            
             //Plastique
+            //--------------------------------------------------------------
             for (int i = 1; i <= vaisseau.getPlastique; i++)
             {
                 pilePlastique = centreTri.getPilePlastique;
@@ -210,11 +228,26 @@ namespace JeuxVaisseaux
                 {
                     do
                     {
-
+                        Ship ship = fileDepart.Dequeue();
+                        for (int u = 0; u < ship.getPoidMax; u++)
+                        {
+                            if (pilePlastique.Count != 0)
+                                pilePlastique.Pop();
+                            else
+                            {
+                                ship.setPlasique = u;
+                                u = 368;
+                            }
+                        }
+                        fileDepart.Enqueue(ship);
                     } while (pilePlastique.Count == 0);
+                    i--;
                 }
             }
+            //--------------------------------------------------------------
+            
             //Feraille
+            //--------------------------------------------------------------
             for (int i = 1; i <= vaisseau.getFerraille; i++)
             {
                 pileFerraille = centreTri.getPileFerraile;
@@ -227,11 +260,26 @@ namespace JeuxVaisseaux
                 {
                     do
                     {
-
+                        Ship ship = fileDepart.Dequeue();
+                        for (int u = 0; u < ship.getPoidMax; u++)
+                        {
+                            if (pileFerraille.Count != 0)
+                                pileFerraille.Pop();
+                            else
+                            {
+                                ship.setFerraille = u;
+                                u = 368;
+                            }
+                        }
+                        fileDepart.Enqueue(ship);
                     } while (pileFerraille.Count == 0);
+                    i--;
                 }
             }
+            //--------------------------------------------------------------
+            
             //Terre Contaminé
+            //--------------------------------------------------------------
             for (int i = 1; i <= vaisseau.getTerreConta; i++)
             {
                 pileTerre = centreTri.getPileTerre;
@@ -244,10 +292,24 @@ namespace JeuxVaisseaux
                 {
                     do
                     {
-
+                        Ship ship = fileDepart.Dequeue();
+                        for (int u = 0; u < ship.getPoidMax; u++)
+                        {
+                            if (pileTerre.Count != 0)
+                                pileTerre.Pop();
+                            else
+                            {
+                                ship.setTerreConta = u;
+                                u = 368;
+                            }
+                        }
+                        fileDepart.Enqueue(ship);
                     } while (pileTerre.Count == 0);
+                    i--;
                 }
-            }*/
+            }
+            //--------------------------------------------------------------
+
             //vider vaisseau
             vaisseau.setPapier = 0;
             vaisseau.setVerre = 0;
@@ -257,27 +319,7 @@ namespace JeuxVaisseaux
             fileDepart.Enqueue(vaisseau);
             centreTri.setFileDepart = fileDepart;
         }
-
-        private void Remplir_Vesseau_Depart(Ctri centreTri)
-        {
-            //Liste de Stack
-            
-                //Chercher la matiere max
-                //boucle for avec le poid max du premier vesseau dans depart
-                //vider la pile dans le vesseau
-            
-        }
-
-        private void Retour_Au_Depart()
-        {
-
-        }
-
-        private void Compter_Matiere()
-        {
-
-        }
-
+        
         private bool IsEven(int i)
         {
             if (i % 2 == 0)
