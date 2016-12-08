@@ -168,7 +168,6 @@ namespace JeuxVaisseaux
                                     u = 368;
                                 }
                             }
-                            fileDepart.Enqueue(ship);
                         } while (pilePapier.Count == 0);
                         i--;
                     }
@@ -178,130 +177,138 @@ namespace JeuxVaisseaux
 
             //Verre
             //--------------------------------------------------------------
-            for (int i = 1; i <= vaisseau.getVerre; i++)
+            if (centreTri.getTabMax[1] != 0)
             {
-                pileVerre = centreTri.getPileVerre;
-                if (IsCTriFull(centreTri))
+                for (int i = 1; i <= vaisseau.getVerre; i++)
                 {
-                    pileVerre.Push(verre);
-                    centreTri.setPileVerre = pileVerre;
-                }
-                else
-                {
-                    do
+                    pileVerre = centreTri.getPileVerre;
+                    if (IsCTriFull(centreTri))
                     {
-                        Ship ship = fileDepart.Dequeue();
-                        for (int u = 0; u < ship.getPoidMax; u++)
+                        pileVerre.Push(verre);
+                        centreTri.setPileVerre = pileVerre;
+                    }
+                    else
+                    {
+                        do
                         {
-                            if (pileVerre.Count != 0)
-                                pileVerre.Pop();
-                            else
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u < ship.getPoidMax; u++)
                             {
-                                ship.setVerre = u;
-                                u = 368;
+                                if (pileVerre.Count != 0)
+                                    pileVerre.Pop();
+                                else
+                                {
+                                    ship.setVerre = u;
+                                    u = 368;
+                                }
                             }
-                        }
-                        fileDepart.Enqueue(ship);
-                    } while (pileVerre.Count == 0);
-                    i--;
+                        } while (pileVerre.Count == 0);
+                        i--;
+                    }
                 }
             }
             //--------------------------------------------------------------
-            
+
             //Plastique
-            //--------------------------------------------------------------
-            for (int i = 1; i <= vaisseau.getPlastique; i++)
+            //-------------------------------------------------------------
+            if (centreTri.getTabMax[2] != 0)
             {
-                pilePlastique = centreTri.getPilePlastique;
-                if (IsCTriFull(centreTri))
+                for (int i = 1; i <= vaisseau.getPlastique; i++)
                 {
-                    pilePlastique.Push(plastique);
-                    centreTri.setPilePlastique = pilePlastique;
-                }
-                else
-                {
-                    do
+                    pilePlastique = centreTri.getPilePlastique;
+                    if (IsCTriFull(centreTri))
                     {
-                        Ship ship = fileDepart.Dequeue();
-                        for (int u = 0; u < ship.getPoidMax; u++)
+                        pilePlastique.Push(plastique);
+                        centreTri.setPilePlastique = pilePlastique;
+                    }
+                    else
+                    {
+                        do
                         {
-                            if (pilePlastique.Count != 0)
-                                pilePlastique.Pop();
-                            else
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u < ship.getPoidMax; u++)
                             {
-                                ship.setPlasique = u;
-                                u = 368;
+                                if (pilePlastique.Count != 0)
+                                    pilePlastique.Pop();
+                                else
+                                {
+                                    ship.setPlasique = u;
+                                    u = 368;
+                                }
                             }
-                        }
-                        fileDepart.Enqueue(ship);
-                    } while (pilePlastique.Count == 0);
-                    i--;
+                        } while (pilePlastique.Count == 0);
+                        i--;
+                    }
                 }
             }
             //--------------------------------------------------------------
-            
+
             //Feraille
             //--------------------------------------------------------------
-            for (int i = 1; i <= vaisseau.getFerraille; i++)
+            if (centreTri.getTabMax[3] != 0)
             {
-                pileFerraille = centreTri.getPileFerraile;
-                if (IsCTriFull(centreTri))
+                for (int i = 1; i <= vaisseau.getFerraille; i++)
                 {
-                    pileFerraille.Push(feraille);
-                    centreTri.setPileFerraille = pileFerraille;
-                }
-                else
-                {
-                    do
+                    pileFerraille = centreTri.getPileFerraile;
+                    if (IsCTriFull(centreTri))
                     {
-                        Ship ship = fileDepart.Dequeue();
-                        for (int u = 0; u < ship.getPoidMax; u++)
+                        pileFerraille.Push(feraille);
+                        centreTri.setPileFerraille = pileFerraille;
+                    }
+                    else
+                    {
+                        do
                         {
-                            if (pileFerraille.Count != 0)
-                                pileFerraille.Pop();
-                            else
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u < ship.getPoidMax; u++)
                             {
-                                ship.setFerraille = u;
-                                u = 368;
+                                if (pileFerraille.Count != 0)
+                                    pileFerraille.Pop();
+                                else
+                                {
+                                    ship.setFerraille = u;
+                                    u = 368;
+                                }
                             }
-                        }
-                        fileDepart.Enqueue(ship);
-                    } while (pileFerraille.Count == 0);
-                    i--;
+                        } while (pileFerraille.Count == 0);
+                        i--;
+                    }
                 }
             }
             //--------------------------------------------------------------
-            
+
             //Terre Contaminé
             //--------------------------------------------------------------
-            for (int i = 1; i <= vaisseau.getTerreConta; i++)
+            if (centreTri.getTabMax[4] != 0)
             {
-                pileTerre = centreTri.getPileTerre;
-                if (IsCTriFull(centreTri))
+                for (int i = 1; i <= vaisseau.getTerreConta; i++)
                 {
-                    pileTerre.Push(terre);
-                    centreTri.setPileTerre = pileTerre;
-                }
-                else
-                {
-                    do
+                    pileTerre = centreTri.getPileTerre;
+                    if (IsCTriFull(centreTri))
                     {
-                        Ship ship = fileDepart.Dequeue();
-                        for (int u = 0; u < ship.getPoidMax; u++)
+                        pileTerre.Push(terre);
+                        centreTri.setPileTerre = pileTerre;
+                    }
+                    else
+                    {
+                        do
                         {
-                            if (pileTerre.Count != 0)
-                                pileTerre.Pop();
-                            else
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u < ship.getPoidMax; u++)
                             {
-                                ship.setTerreConta = u;
-                                u = 368;
+                                if (pileTerre.Count != 0)
+                                    pileTerre.Pop();
+                                else
+                                {
+                                    ship.setTerreConta = u;
+                                    u = 368;
+                                }
                             }
-                        }
-                        fileDepart.Enqueue(ship);
-                    } while (pileTerre.Count == 0);
-                    i--;
+                        } while (pileTerre.Count == 0);
+                        i--;
+                    }
                 }
-            }
+            }                
             //--------------------------------------------------------------
 
             //vider vaisseau
