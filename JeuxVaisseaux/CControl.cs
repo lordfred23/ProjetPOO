@@ -126,6 +126,12 @@ namespace JeuxVaisseaux
                 if (i != (choix * 10 - 1))
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
+            for( int i=0;i<4;i++)
+            {
+                ca.Afficher_Final(tabCentreTri[i], i++);
+            }
+            Console.ReadLine();
+
         }
 
         private void Vider_Vaisseau(Ship vaisseau,Ctri centreTri)
