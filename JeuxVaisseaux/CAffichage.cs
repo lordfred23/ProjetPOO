@@ -55,7 +55,10 @@ namespace JeuxVaisseaux
         public void Affichage_Vaisseaux(Stack<Ship> fileVaisseau)
         {
             Ship vaisseaux;
+
             int x, i;
+
+
             x = 0;
             
 
