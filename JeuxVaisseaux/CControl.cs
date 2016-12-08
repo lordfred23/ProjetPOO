@@ -126,9 +126,9 @@ namespace JeuxVaisseaux
                 if (i != (choix * 10 - 1))
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
-            for( int i=0;i<4;i++)
+            for( int i=0;i<tabCentreTri.Count();i++)
             {
-                ca.Afficher_Final(tabCentreTri[i], i++);
+                ca.Afficher_Final(tabCentreTri[i], i+1);
             }
             Console.ReadLine();
 
