@@ -119,7 +119,7 @@ namespace JeuxVaisseaux
                 do
                 {
                     Vider_Vaisseau(tabCentreTri[i].getFileArriver.Peek(),tabCentreTri[i]);
-                    fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Peek());
+                    //fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Peek());
                     tabCentreTri[i].setFileDepart = fileDepart;
                     tabCentreTri[i].getFileArriver.Dequeue();
                 } while (tabCentreTri[i].getFileArriver.Count() != 0);
