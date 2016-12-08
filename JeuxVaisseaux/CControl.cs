@@ -116,7 +116,7 @@ namespace JeuxVaisseaux
         private void Debut_Jeu(int choix)
         {
             Queue<Ship> fileDepart;
-            for (int i = 0; i <= choix * 10; i++)
+            for (int i = 0; i < choix * 10; i++)
             {
                 fileDepart = tabCentreTri[i].getFileDepart;
                 do
@@ -125,8 +125,8 @@ namespace JeuxVaisseaux
                     fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Peek());
                     tabCentreTri[i].setFileDepart = fileDepart;
                     tabCentreTri[i].getFileArriver.Dequeue();
-                } while (tabCentreTri[i].getFileArriver.Count() == 0);
-                if (i != 9)
+                } while (tabCentreTri[i].getFileArriver.Count() != 0);
+                if (i != (choix * 10 - 1))
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
         }
@@ -176,7 +176,7 @@ namespace JeuxVaisseaux
                     }
                 }
             }
-            
+            /*
             //Verre
             for (int i = 1; i <= vaisseau.getVerre; i++)
             {
@@ -244,7 +244,7 @@ namespace JeuxVaisseaux
 
                     } while (pileTerre.Count == 0);
                 }
-            }
+            }*/
             //vider vaisseau
             vaisseau.setPapier = 0;
             vaisseau.setVerre = 0;
@@ -291,31 +291,31 @@ namespace JeuxVaisseaux
             Stack<Terre> pileTerre=ct.getPileTerre;
 
 
-            if (pilePapier.Count() == ct.getTabMax[0])
+            if (pilePapier.Count == ct.getTabMax[0])
             {
                 return false;
             }
             else
             {
-                if (pileVerre.Count() == ct.getTabMax[1])
+                if (pileVerre.Count == ct.getTabMax[1])
                 {
                     return false;
                 }
                 else
                 {
-                    if (pilePlastique.Count() == ct.getTabMax[2])
+                    if (pilePlastique.Count == ct.getTabMax[2])
                     {
                         return false;
                     }
                     else
                     {
-                        if (pileFerraille.Count() == ct.getTabMax[3])
+                        if (pileFerraille.Count == ct.getTabMax[3])
                         {
                             return false;
                         }
                         else
                         {
-                            if (pileTerre.Count() == ct.getTabMax[4])
+                            if (pileTerre.Count == ct.getTabMax[4])
                             {
                                 return false;
                             }

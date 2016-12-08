@@ -21,10 +21,5 @@ namespace JeuxVaisseaux
         {
             get { return _numero; }
         }
-
-        public int getPoidMax
-        {
-            get { return _poidMax; }
-        }
     }
 }

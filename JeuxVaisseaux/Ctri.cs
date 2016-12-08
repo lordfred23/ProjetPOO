@@ -15,7 +15,6 @@ namespace JeuxVaisseaux
         Stack<Terre> pileTerre;
         Queue<Ship> fileArriver = new Queue<Ship>();
         Queue<Ship> fileDepart = new Queue<Ship>();
-        //int papier, verre, plastique, ferraille, terreConta;
 
         int[] tabMax = new int[5];
         public Ctri(bool x)
@@ -57,11 +56,11 @@ namespace JeuxVaisseaux
 
         private void Creer_Pile()
         {
-            Stack<Papier> pilePapier = new Stack<Papier>();
-            Stack<Verre> pileVerre = new Stack<Verre>();
-            Stack<Plastique> pilePlastique = new Stack<Plastique>();
-            Stack<Feraille> pileFerraille = new Stack<Feraille>();
-            Stack<Terre> pileTerre = new Stack<Terre>();            
+            pilePapier = new Stack<Papier>();
+            pileVerre = new Stack<Verre>();
+            pilePlastique = new Stack<Plastique>();
+            pileFerraille = new Stack<Feraille>();
+            pileTerre = new Stack<Terre>();            
         }
 
         private void Determiner_Taille(bool x)

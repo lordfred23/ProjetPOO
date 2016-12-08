@@ -55,7 +55,7 @@ namespace JeuxVaisseaux
         public void Affichage_Vaisseaux(Stack<Ship> fileVaisseau)
         {
             Ship vaisseaux;
-            int x, y,i;
+            int x,i;
             x = 0;
             Console.Clear();
 
