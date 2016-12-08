@@ -9,10 +9,7 @@ namespace JeuxVaisseaux
     class CAffichage
     {
         
-        public CAffichage()
-        {
-            affichage();
-        }
+        public CAffichage() { }
 
         public int affichage()
         {
