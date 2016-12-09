@@ -66,9 +66,6 @@ namespace JeuxVaisseaux
                     fileVaisseau.Push(hs);
                 }
             }
-            //ca.Affichage_Vaisseaux(fileVaisseau);
-            //Console.ReadLine();
-
         }
 
         private int[] Remplir_vaisseaux(int reste)
