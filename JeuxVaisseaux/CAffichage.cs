@@ -51,17 +51,13 @@ namespace JeuxVaisseaux
         }
         public void Affichage_Vaisseaux(Stack<Ship> fileVaisseau)
         {
+            Console.Clear();
             Ship vaisseaux;
-
             int x, i;
-
-
             x = 0;
-            
-
-            for (i = 1; i < fileVaisseau.Count(); i++)
+            for (i = 1; i < fileVaisseau.Count; i++)
             {
-                vaisseaux = fileVaisseau.Pop();
+               vaisseaux = fileVaisseau.ElementAt(i-1);
 
                 Console.SetCursorPosition(0, x);
                 Console.Write(i + ": ");
@@ -81,8 +77,6 @@ namespace JeuxVaisseaux
                 Console.Write(vaisseaux.getTerreConta);
                 x++;
                 Console.ForegroundColor = ConsoleColor.White;
-
-
             }
         }
         public void Afficher_Final(Ctri tri,int i)
@@ -98,9 +92,6 @@ namespace JeuxVaisseaux
             Console.WriteLine("           Plastique :" + tri.getPilePlastique.Count() + "");
             Console.WriteLine("           Ferraille :" + tri.getPileFerraile.Count() + "");
             Console.WriteLine("           Terre Contaminé :" + tri.getPileTerre.Count() + "");
-
-
-
         }
     }
 }

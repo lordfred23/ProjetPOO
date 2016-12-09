@@ -33,10 +33,10 @@ namespace JeuxVaisseaux
                 else
                 {
                     Jouer();
-                }                    
-            }           
+                }
+            }
         }
-        
+
         private void Determiner_NombreVaisseaux(int choix)
         {
             Cree_Vaisseaux(choix * 100);
@@ -66,9 +66,9 @@ namespace JeuxVaisseaux
                     fileVaisseau.Push(hs);
                 }
             }
-            ca.Affichage_Vaisseaux(fileVaisseau);
-            Console.ReadLine();
-            
+            //ca.Affichage_Vaisseaux(fileVaisseau);
+            //Console.ReadLine();
+
         }
 
         private int[] Remplir_vaisseaux(int reste)
@@ -96,14 +96,15 @@ namespace JeuxVaisseaux
         private void Cree_Centre_trie(int choix)
         {
             Ctri centreTri;
-            tabCentreTri = new Ctri[choix*10];
-            for(int i = 1; i <= (choix*10); i++)
+            tabCentreTri = new Ctri[choix * 10];
+            for (int i = 1; i <= (choix * 10); i++)
             {
-                centreTri = new Ctri(IsEven(i),EstNombrePremier(i),EstMultipleCinq(i));
+                centreTri = new Ctri(IsEven(i), EstNombrePremier(i), EstMultipleCinq(i));
                 tabCentreTri[i - 1] = centreTri;
             }
             Queue<Ship> fileArriver = tabCentreTri[0].getFileArriver;
-            for(int i = 1; i <= fileVaisseau.Count; i++)
+            int nbVaisseau = fileVaisseau.Count;
+            for (int i = 1; i <= nbVaisseau; i++)
             {
                 fileArriver.Enqueue(fileVaisseau.Pop());
             }
@@ -118,17 +119,22 @@ namespace JeuxVaisseaux
                 fileDepart = tabCentreTri[i].getFileDepart;
                 do
                 {
-                    Vider_Vaisseau(tabCentreTri[i].getFileArriver.Peek(),tabCentreTri[i]);
-                    fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Peek());
+                    Vider_Vaisseau(tabCentreTri[i].getFileArriver.Peek(), tabCentreTri[i]);
+                    fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Dequeue());
                     tabCentreTri[i].setFileDepart = fileDepart;
-                    tabCentreTri[i].getFileArriver.Dequeue();
-                } while (tabCentreTri[i].getFileArriver.Count() != 0);
-                if (i != (choix * 10 - 1))
+                } while (tabCentreTri[i].getFileArriver.Count != 0);
+                if (i != (choix * 10) - 1)
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
+            for (int i = 0; i < choix * 10; i++)
+            {
+                ca.Afficher_Final(tabCentreTri[i], i + 1);
+            }
+            Console.ReadLine();
+
         }
 
-        private void Vider_Vaisseau(Ship vaisseau,Ctri centreTri)
+        private void Vider_Vaisseau(Ship vaisseau, Ctri centreTri)
         {
             Queue<Ship> fileDepart = centreTri.getFileDepart;
             Stack<Papier> pilePapier;
@@ -143,7 +149,7 @@ namespace JeuxVaisseaux
             Terre terre = new Terre(0);
             //Papier
             //--------------------------------------------------------------
-            if(centreTri.getTabMax[0] != 0)
+            if (centreTri.getTabMax[0] != 0)
             {
                 for (int i = 1; i <= vaisseau.getPapier; i++)
                 {
@@ -158,23 +164,25 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pilePapier.Count != 0)
+                                if ((pilePapier.Count != 0) && (u < ship.getPoidMax))
                                     pilePapier.Pop();
                                 else
                                 {
                                     ship.setPapier = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
-                        } while (pilePapier.Count == 0);
+                            fileDepart.Enqueue(ship);
+                        } while (pilePapier.Count <= 0);
                         i--;
                     }
                 }
+                vaisseau.setPapier = 0;
             }
             //--------------------------------------------------------------
-
+            /*
             //Verre
             //--------------------------------------------------------------
             if (centreTri.getTabMax[1] != 0)
@@ -192,23 +200,25 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileVerre.Count != 0)
+                                if ((pileVerre.Count != 0) && (u < ship.getPoidMax))
                                     pileVerre.Pop();
                                 else
                                 {
                                     ship.setVerre = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileVerre.Count == 0);
                         i--;
                     }
                 }
+                vaisseau.setVerre = 0;
             }
             //--------------------------------------------------------------
-
+            
             //Plastique
             //-------------------------------------------------------------
             if (centreTri.getTabMax[2] != 0)
@@ -226,20 +236,22 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pilePlastique.Count != 0)
+                                if ((pilePlastique.Count != 0) && (u < ship.getPoidMax))
                                     pilePlastique.Pop();
                                 else
                                 {
                                     ship.setPlasique = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pilePlastique.Count == 0);
                         i--;
                     }
                 }
+                vaisseau.setPlasique = 0;
             }
             //--------------------------------------------------------------
 
@@ -260,20 +272,22 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileFerraille.Count != 0)
+                                if ((pileFerraille.Count != 0) && (u < ship.getPoidMax))
                                     pileFerraille.Pop();
                                 else
                                 {
                                     ship.setFerraille = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileFerraille.Count == 0);
                         i--;
                     }
                 }
+                vaisseau.setFerraille = 0;
             }
             //--------------------------------------------------------------
 
@@ -294,33 +308,29 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileTerre.Count != 0)
+                                if ((pileTerre.Count != 0) && (u < ship.getPoidMax))
                                     pileTerre.Pop();
                                 else
                                 {
                                     ship.setTerreConta = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileTerre.Count == 0);
                         i--;
                     }
                 }
-            }                
+                vaisseau.setTerreConta = 0;
+            }*/
             //--------------------------------------------------------------
 
             //vider vaisseau
-            vaisseau.setPapier = 0;
-            vaisseau.setVerre = 0;
-            vaisseau.setPlasique = 0;
-            vaisseau.setFerraille = 0;
-            vaisseau.setTerreConta = 0;
-            fileDepart.Enqueue(vaisseau);
             centreTri.setFileDepart = fileDepart;
         }
-        
+
         private bool IsEven(int i)
         {
             if (i % 2 == 0)
@@ -336,7 +346,7 @@ namespace JeuxVaisseaux
             bool fini;
             decimal debRacine = Convert.ToInt32(Math.Sqrt(n));
             racine = Convert.ToInt32(Math.Truncate(debRacine));
-             fini = false;
+            fini = false;
             i = 3;
             if (n < 2) { fini = true; }
             else if (n != 2)
@@ -348,16 +358,16 @@ namespace JeuxVaisseaux
                 else
                 {
                     while ((!fini) && (i <= racine))
-                    { 
+                    {
                         if (n % i == 0) { fini = true; }
                         else { i = i + 2; }
 
                     }
 
-                 }
+                }
 
             }
-             return (!fini);
+            return (!fini);
         }
         private bool EstMultipleCinq(int i)
         {
@@ -365,17 +375,17 @@ namespace JeuxVaisseaux
                 return true;
             else
                 return false;
-            
+
 
 
         }
         private bool IsCTriFull(Ctri ct)
         {
-            Stack<Papier> pilePapier=ct.getPilePapier;
-            Stack<Verre> pileVerre=ct.getPileVerre;
-            Stack<Plastique> pilePlastique=ct.getPilePlastique;
-            Stack<Feraille> pileFerraille=ct.getPileFerraile;
-            Stack<Terre> pileTerre=ct.getPileTerre;
+            Stack<Papier> pilePapier = ct.getPilePapier;
+            Stack<Verre> pileVerre = ct.getPileVerre;
+            Stack<Plastique> pilePlastique = ct.getPilePlastique;
+            Stack<Feraille> pileFerraille = ct.getPileFerraile;
+            Stack<Terre> pileTerre = ct.getPileTerre;
 
 
             if (pilePapier.Count == ct.getTabMax[0])
@@ -418,7 +428,7 @@ namespace JeuxVaisseaux
         private void ControlAffichageFin()
         {
             int i;
-            for(i=0;i<5;i++)
+            for (i = 0; i < 5; i++)
             {
                 ca.Afficher_Final(tabCentreTri[i], i++);
             }
