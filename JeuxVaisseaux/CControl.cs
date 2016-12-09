@@ -143,41 +143,11 @@ namespace JeuxVaisseaux
             Terre terre = new Terre(0);
             //Papier
             //--------------------------------------------------------------
-            if (centreTri.getTabMax[0] != 0)
-            {
-                for (int i = 1; i <= vaisseau.getPapier; i++)
-                {
-                    pilePapier = centreTri.getPilePapier;
-                    if (IsCTriFull(centreTri))
-                    {
-                        pilePapier.Push(papier);
-                        centreTri.setPilePapier = pilePapier;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u <= ship.getPoidMax; u++)
-                            {
-                                if ((pilePapier.Count != 0) && (u < ship.getPoidMax))
-                                    pilePapier.Pop();
-                                else
-                                {
-                                    ship.setPapier = u;
-                                    u = 400;
-                                }
-                            }
-                            fileDepart.Enqueue(ship);
-                        } while (pilePapier.Count <= 0);
-                        i--;
-                    }
-                }
-                vaisseau.setPapier = 0;
-            }
+            viderPapier(centreTri, vaisseau, fileDepart);
+           
             //--------------------------------------------------------------
             
-            Vider_Verre(centreTrivaisseau, fileDepart);
+            Vider_Verre(centreTri,vaisseau,fileDepart);
             //--------------------------------------------------------------
             /*
             //Plastique
@@ -290,6 +260,43 @@ namespace JeuxVaisseaux
 
             //vider vaisseau
             centreTri.setFileDepart = fileDepart;
+        }
+        private void viderPapier(Ctri centreTri,Ship vaisseau,Queue<Ship>fileDepart)
+        {
+            if (centreTri.getTabMax[0] != 0)
+            {
+                Stack<Papier> pilePapier;
+                Papier papier = new Papier(1);
+                for (int i = 1; i <= vaisseau.getPapier; i++)
+                {
+                    pilePapier = centreTri.getPilePapier;
+                    if (IsCTriFull(centreTri))
+                    {
+                        pilePapier.Push(papier);
+                        centreTri.setPilePapier = pilePapier;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u <= ship.getPoidMax; u++)
+                            {
+                                if ((pilePapier.Count != 0) && (u < ship.getPoidMax))
+                                    pilePapier.Pop();
+                                else
+                                {
+                                    ship.setPapier = u;
+                                    u = 400;
+                                }
+                            }
+                            fileDepart.Enqueue(ship);
+                        } while (pilePapier.Count <= 0);
+                        i--;
+                    }
+                }
+                vaisseau.setPapier = 0;
+            }
         }
 
         private void Vider_Verre(Ctri centreTri, Ship vaisseau,Queue<Ship> fileDepart)
