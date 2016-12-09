@@ -67,7 +67,7 @@ namespace JeuxVaisseaux
                 }
             }
             ca.Affichage_Vaisseaux(fileVaisseau);
-            Console.ReadLine();
+            //Console.ReadLine();
             
         }
 
@@ -103,7 +103,8 @@ namespace JeuxVaisseaux
                 tabCentreTri[i - 1] = centreTri;
             }
             Queue<Ship> fileArriver = tabCentreTri[0].getFileArriver;
-            for(int i = 1; i <= fileVaisseau.Count; i++)
+            int nbVaisseau = fileVaisseau.Count;
+            for (int i = 1; i <= nbVaisseau; i++)
             {
                 fileArriver.Enqueue(fileVaisseau.Pop());
             }
@@ -119,14 +120,13 @@ namespace JeuxVaisseaux
                 do
                 {
                     Vider_Vaisseau(tabCentreTri[i].getFileArriver.Peek(),tabCentreTri[i]);
-                    fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Peek());
+                    fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Dequeue());
                     tabCentreTri[i].setFileDepart = fileDepart;
-                    tabCentreTri[i].getFileArriver.Dequeue();
-                } while (tabCentreTri[i].getFileArriver.Count() != 0);
+                } while (tabCentreTri[i].getFileArriver.Count != 0);
                 if (i != (choix * 10 - 1))
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
-            for( int i=0;i<tabCentreTri.Count();i++)
+            for( int i=0;i<choix * 10;i++)
             {
                 ca.Afficher_Final(tabCentreTri[i], i+1);
             }
@@ -149,7 +149,7 @@ namespace JeuxVaisseaux
             Terre terre = new Terre(0);
             //Papier
             //--------------------------------------------------------------
-            if(centreTri.getTabMax[0] != 0)
+            if (centreTri.getTabMax[0] != 0)
             {
                 for (int i = 1; i <= vaisseau.getPapier; i++)
                 {
@@ -164,16 +164,17 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pilePapier.Count != 0)
+                                if ((pilePapier.Count != 0) && (u < ship.getPoidMax))
                                     pilePapier.Pop();
                                 else
                                 {
                                     ship.setPapier = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pilePapier.Count == 0);
                         i--;
                     }
@@ -198,16 +199,17 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileVerre.Count != 0)
+                                if ((pileVerre.Count != 0) && (u < ship.getPoidMax))
                                     pileVerre.Pop();
                                 else
                                 {
                                     ship.setVerre = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileVerre.Count == 0);
                         i--;
                     }
@@ -232,16 +234,17 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pilePlastique.Count != 0)
+                                if ((pilePlastique.Count != 0) && (u < ship.getPoidMax))
                                     pilePlastique.Pop();
                                 else
                                 {
                                     ship.setPlasique = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pilePlastique.Count == 0);
                         i--;
                     }
@@ -266,16 +269,17 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileFerraille.Count != 0)
+                                if ((pileFerraille.Count != 0) && (u < ship.getPoidMax))
                                     pileFerraille.Pop();
                                 else
                                 {
                                     ship.setFerraille = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileFerraille.Count == 0);
                         i--;
                     }
@@ -300,21 +304,22 @@ namespace JeuxVaisseaux
                         do
                         {
                             Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u < ship.getPoidMax; u++)
+                            for (int u = 0; u <= ship.getPoidMax; u++)
                             {
-                                if (pileTerre.Count != 0)
+                                if ((pileTerre.Count != 0) && (u < ship.getPoidMax))
                                     pileTerre.Pop();
                                 else
                                 {
                                     ship.setTerreConta = u;
-                                    u = 368;
+                                    u = 400;
                                 }
                             }
+                            fileDepart.Enqueue(ship);
                         } while (pileTerre.Count == 0);
                         i--;
                     }
                 }
-            }                
+            }
             //--------------------------------------------------------------
 
             //vider vaisseau
@@ -323,7 +328,6 @@ namespace JeuxVaisseaux
             vaisseau.setPlasique = 0;
             vaisseau.setFerraille = 0;
             vaisseau.setTerreConta = 0;
-            fileDepart.Enqueue(vaisseau);
             centreTri.setFileDepart = fileDepart;
         }
         
