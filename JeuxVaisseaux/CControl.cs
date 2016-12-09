@@ -66,7 +66,7 @@ namespace JeuxVaisseaux
                     fileVaisseau.Push(hs);
                 }
             }
-            ca.Affichage_Vaisseaux(fileVaisseau);
+            //ca.Affichage_Vaisseaux(fileVaisseau);
             //Console.ReadLine();
             
         }
@@ -123,7 +123,7 @@ namespace JeuxVaisseaux
                     fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Dequeue());
                     tabCentreTri[i].setFileDepart = fileDepart;
                 } while (tabCentreTri[i].getFileArriver.Count != 0);
-                if (i != (choix * 10 - 1))
+                if (i != (choix * 10) - 1)
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
             for( int i=0;i<choix * 10;i++)
@@ -175,13 +175,14 @@ namespace JeuxVaisseaux
                                 }
                             }
                             fileDepart.Enqueue(ship);
-                        } while (pilePapier.Count == 0);
+                        } while (pilePapier.Count <= 0);
                         i--;
                     }
                 }
+                vaisseau.setPapier = 0;
             }
             //--------------------------------------------------------------
-
+            /*
             //Verre
             //--------------------------------------------------------------
             if (centreTri.getTabMax[1] != 0)
@@ -214,9 +215,10 @@ namespace JeuxVaisseaux
                         i--;
                     }
                 }
+                vaisseau.setVerre = 0;
             }
             //--------------------------------------------------------------
-
+            
             //Plastique
             //-------------------------------------------------------------
             if (centreTri.getTabMax[2] != 0)
@@ -249,6 +251,7 @@ namespace JeuxVaisseaux
                         i--;
                     }
                 }
+                vaisseau.setPlasique = 0;
             }
             //--------------------------------------------------------------
 
@@ -284,6 +287,7 @@ namespace JeuxVaisseaux
                         i--;
                     }
                 }
+                vaisseau.setFerraille = 0;
             }
             //--------------------------------------------------------------
 
@@ -319,15 +323,11 @@ namespace JeuxVaisseaux
                         i--;
                     }
                 }
-            }
+                vaisseau.setTerreConta = 0;
+            }*/
             //--------------------------------------------------------------
 
             //vider vaisseau
-            vaisseau.setPapier = 0;
-            vaisseau.setVerre = 0;
-            vaisseau.setPlasique = 0;
-            vaisseau.setFerraille = 0;
-            vaisseau.setTerreConta = 0;
             centreTri.setFileDepart = fileDepart;
         }
         
