@@ -38,7 +38,7 @@ namespace JeuxVaisseaux
 
         private void Determiner_NombreVaisseaux(int choix)
         {
-            Cree_Vaisseaux(choix * 9);
+            Cree_Vaisseaux(choix * 100);
             Cree_Centre_trie(choix);
         }
         private void Cree_Vaisseaux(int nb)
@@ -92,8 +92,8 @@ namespace JeuxVaisseaux
         private void Cree_Centre_trie(int choix)
         {
             Ctri centreTri;
-            tabCentreTri = new Ctri[4];
-            for (int i = 1; i <= (4); i++)
+            tabCentreTri = new Ctri[10];
+            for (int i = 1; i <= (10); i++)
             {
                 centreTri = new Ctri(IsEven(i), EstNombrePremier(i), EstMultipleCinq(i));
                 tabCentreTri[i - 1] = centreTri;
@@ -110,7 +110,7 @@ namespace JeuxVaisseaux
         private void Debut_Jeu(int choix)
         {
             Queue<Ship> fileDepart;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 10; i++)
             {
                 fileDepart = tabCentreTri[i].getFileDepart;
                 do
@@ -119,35 +119,28 @@ namespace JeuxVaisseaux
                     fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Dequeue());
                     tabCentreTri[i].setFileDepart = fileDepart;
                 } while (tabCentreTri[i].getFileArriver.Count != 0);
-                if (i != (4) - 1)
+                if (i != (10) - 1)
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
-                //ajouterVaisseau(tabCentreTri[i]);
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 10; i++)
             {
                 ca.Afficher_Final(tabCentreTri[i], i + 1);
             }
             Console.ReadLine();
-
         }
 
         private void Vider_Vaisseau(Ship vaisseau, Ctri centreTri)
         {
             Queue<Ship> fileDepart = centreTri.getFileDepart;
             //Papier
-            //--------------------------------------------------------------
             viderPapier(centreTri, vaisseau, fileDepart);
-            //Verre
-            //--------------------------------------------------------------            
-            viderVerre(centreTri,vaisseau,fileDepart);
-            //Plastique
-            //--------------------------------------------------------------
+            //Verre            
+            //viderVerre(centreTri,vaisseau,fileDepart);
+            //Plastique-
             //viderPlastique(centreTri, vaisseau, fileDepart);
             //Feraille
-            //-------------------------------------------------------------
             //viderFeraille(centreTri, vaisseau, fileDepart);
             //Terre Contaminé
-            //------------------------------------------------------------
             //viderTerre(centreTri, vaisseau, fileDepart);
             //vider vaisseau
             centreTri.setFileDepart = fileDepart;
