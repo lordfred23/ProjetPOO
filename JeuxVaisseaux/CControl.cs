@@ -135,12 +135,9 @@ namespace JeuxVaisseaux
         {
             Queue<Ship> fileDepart = centreTri.getFileDepart;
             Stack<Papier> pilePapier;
-            Stack<Verre> pileVerre;
             Stack<Plastique> pilePlastique;
             Stack<Feraille> pileFerraille;
-            Stack<Terre> pileTerre;
-            Papier papier = new Papier(0);
-            Verre verre = new Verre(0);
+            Stack<Terre> pileTerre;           
             Plastique plastique = new Plastique(0);
             Feraille feraille = new Feraille(0);
             Terre terre = new Terre(0);
@@ -179,43 +176,10 @@ namespace JeuxVaisseaux
                 vaisseau.setPapier = 0;
             }
             //--------------------------------------------------------------
-            /*
-            //Verre
-            //--------------------------------------------------------------
-            if (centreTri.getTabMax[1] != 0)
-            {
-                for (int i = 1; i <= vaisseau.getVerre; i++)
-                {
-                    pileVerre = centreTri.getPileVerre;
-                    if (IsCTriFull(centreTri))
-                    {
-                        pileVerre.Push(verre);
-                        centreTri.setPileVerre = pileVerre;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u <= ship.getPoidMax; u++)
-                            {
-                                if ((pileVerre.Count != 0) && (u < ship.getPoidMax))
-                                    pileVerre.Pop();
-                                else
-                                {
-                                    ship.setVerre = u;
-                                    u = 400;
-                                }
-                            }
-                            fileDepart.Enqueue(ship);
-                        } while (pileVerre.Count == 0);
-                        i--;
-                    }
-                }
-                vaisseau.setVerre = 0;
-            }
-            //--------------------------------------------------------------
             
+            Vider_Verre(centreTrivaisseau, fileDepart);
+            //--------------------------------------------------------------
+            /*
             //Plastique
             //-------------------------------------------------------------
             if (centreTri.getTabMax[2] != 0)
@@ -326,6 +290,45 @@ namespace JeuxVaisseaux
 
             //vider vaisseau
             centreTri.setFileDepart = fileDepart;
+        }
+
+        private void Vider_Verre(Ctri centreTri, Ship vaisseau,Queue<Ship> fileDepart)
+        {
+            Stack<Verre> pileVerre;
+            Verre verre = new Verre(0);
+
+            if (centreTri.getTabMax[1] != 0)
+            {
+                for (int i = 1; i <= vaisseau.getVerre; i++)
+                {
+                    pileVerre = centreTri.getPileVerre;
+                    if (IsCTriFull(centreTri))
+                    {
+                        pileVerre.Push(verre);
+                        centreTri.setPileVerre = pileVerre;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u <= ship.getPoidMax; u++)
+                            {
+                                if ((pileVerre.Count != 0) && (u < ship.getPoidMax))
+                                    pileVerre.Pop();
+                                else
+                                {
+                                    ship.setVerre = u;
+                                    u = 400;
+                                }
+                            }
+                            fileDepart.Enqueue(ship);
+                        } while (pileVerre.Count == 0);
+                        i--;
+                    }
+                }
+                vaisseau.setVerre = 0;
+            }
         }
 
         private bool IsEven(int i)
