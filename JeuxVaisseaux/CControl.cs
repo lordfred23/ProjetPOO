@@ -38,7 +38,7 @@ namespace JeuxVaisseaux
 
         private void Determiner_NombreVaisseaux(int choix)
         {
-            Cree_Vaisseaux(choix * 15);
+            Cree_Vaisseaux(choix * 9);
             Cree_Centre_trie(choix);
         }
         private void Cree_Vaisseaux(int nb)
@@ -121,6 +121,7 @@ namespace JeuxVaisseaux
                 } while (tabCentreTri[i].getFileArriver.Count != 0);
                 if (i != (4) - 1)
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
+                //ajouterVaisseau(tabCentreTri[i]);
             }
             for (int i = 0; i < 4; i++)
             {
@@ -141,13 +142,13 @@ namespace JeuxVaisseaux
             viderVerre(centreTri,vaisseau,fileDepart);
             //Plastique
             //--------------------------------------------------------------
-            viderPlastique(centreTri, vaisseau, fileDepart);
+            //viderPlastique(centreTri, vaisseau, fileDepart);
             //Feraille
             //-------------------------------------------------------------
-            viderFeraille(centreTri, vaisseau, fileDepart);
+            //viderFeraille(centreTri, vaisseau, fileDepart);
             //Terre Contaminé
             //------------------------------------------------------------
-            viderTerre(centreTri, vaisseau, fileDepart);
+            //viderTerre(centreTri, vaisseau, fileDepart);
             //vider vaisseau
             centreTri.setFileDepart = fileDepart;
         }
@@ -435,6 +436,16 @@ namespace JeuxVaisseaux
                     }
                 }
             }
+        }
+        private void ajouterVaisseau(Ctri centreTri)
+        {
+            Queue<Ship> fileDepart = centreTri.getFileDepart;
+            for (int i = 0; i < 5; i++)
+            {
+                HeavyShip hs = new HeavyShip(367);
+                fileDepart.Enqueue(hs);
+            }
+            centreTri.setFileDepart = fileDepart;
         }
     }
 }
