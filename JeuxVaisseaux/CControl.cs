@@ -13,8 +13,7 @@ namespace JeuxVaisseaux
         Ctri[] tabCentreTri;
         //Ship vaisseau;
         Stack<Ship> fileVaisseau = new Stack<Ship>();
-        public CControl()
-        { }
+        public CControl() { }
 
         public void Jouer()
         {
@@ -39,7 +38,7 @@ namespace JeuxVaisseaux
 
         private void Determiner_NombreVaisseaux(int choix)
         {
-            Cree_Vaisseaux(choix * 100);
+            Cree_Vaisseaux(choix * 15);
             Cree_Centre_trie(choix);
         }
         private void Cree_Vaisseaux(int nb)
@@ -93,8 +92,8 @@ namespace JeuxVaisseaux
         private void Cree_Centre_trie(int choix)
         {
             Ctri centreTri;
-            tabCentreTri = new Ctri[choix * 10];
-            for (int i = 1; i <= (choix * 10); i++)
+            tabCentreTri = new Ctri[4];
+            for (int i = 1; i <= (4); i++)
             {
                 centreTri = new Ctri(IsEven(i), EstNombrePremier(i), EstMultipleCinq(i));
                 tabCentreTri[i - 1] = centreTri;
@@ -111,7 +110,7 @@ namespace JeuxVaisseaux
         private void Debut_Jeu(int choix)
         {
             Queue<Ship> fileDepart;
-            for (int i = 0; i < choix * 10; i++)
+            for (int i = 0; i < 4; i++)
             {
                 fileDepart = tabCentreTri[i].getFileDepart;
                 do
@@ -120,10 +119,10 @@ namespace JeuxVaisseaux
                     fileDepart.Enqueue(tabCentreTri[i].getFileArriver.Dequeue());
                     tabCentreTri[i].setFileDepart = fileDepart;
                 } while (tabCentreTri[i].getFileArriver.Count != 0);
-                if (i != (choix * 10) - 1)
+                if (i != (4) - 1)
                     tabCentreTri[i + 1].setFileArriver = fileDepart;
             }
-            for (int i = 0; i < choix * 10; i++)
+            for (int i = 0; i < 4; i++)
             {
                 ca.Afficher_Final(tabCentreTri[i], i + 1);
             }
@@ -134,130 +133,21 @@ namespace JeuxVaisseaux
         private void Vider_Vaisseau(Ship vaisseau, Ctri centreTri)
         {
             Queue<Ship> fileDepart = centreTri.getFileDepart;
-            Stack<Papier> pilePapier;
-            Stack<Plastique> pilePlastique;
-            Stack<Feraille> pileFerraille;
-            Stack<Terre> pileTerre;           
-            Plastique plastique = new Plastique(0);
-            Feraille feraille = new Feraille(0);
-            Terre terre = new Terre(0);
             //Papier
             //--------------------------------------------------------------
             viderPapier(centreTri, vaisseau, fileDepart);
-           
-            //--------------------------------------------------------------
-            
-            Vider_Verre(centreTri,vaisseau,fileDepart);
-            //--------------------------------------------------------------
-            /*
+            //Verre
+            //--------------------------------------------------------------            
+            viderVerre(centreTri,vaisseau,fileDepart);
             //Plastique
-            //-------------------------------------------------------------
-            if (centreTri.getTabMax[2] != 0)
-            {
-                for (int i = 1; i <= vaisseau.getPlastique; i++)
-                {
-                    pilePlastique = centreTri.getPilePlastique;
-                    if (IsCTriFull(centreTri))
-                    {
-                        pilePlastique.Push(plastique);
-                        centreTri.setPilePlastique = pilePlastique;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u <= ship.getPoidMax; u++)
-                            {
-                                if ((pilePlastique.Count != 0) && (u < ship.getPoidMax))
-                                    pilePlastique.Pop();
-                                else
-                                {
-                                    ship.setPlasique = u;
-                                    u = 400;
-                                }
-                            }
-                            fileDepart.Enqueue(ship);
-                        } while (pilePlastique.Count == 0);
-                        i--;
-                    }
-                }
-                vaisseau.setPlasique = 0;
-            }
             //--------------------------------------------------------------
-
+            viderPlastique(centreTri, vaisseau, fileDepart);
             //Feraille
-            //--------------------------------------------------------------
-            if (centreTri.getTabMax[3] != 0)
-            {
-                for (int i = 1; i <= vaisseau.getFerraille; i++)
-                {
-                    pileFerraille = centreTri.getPileFerraile;
-                    if (IsCTriFull(centreTri))
-                    {
-                        pileFerraille.Push(feraille);
-                        centreTri.setPileFerraille = pileFerraille;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u <= ship.getPoidMax; u++)
-                            {
-                                if ((pileFerraille.Count != 0) && (u < ship.getPoidMax))
-                                    pileFerraille.Pop();
-                                else
-                                {
-                                    ship.setFerraille = u;
-                                    u = 400;
-                                }
-                            }
-                            fileDepart.Enqueue(ship);
-                        } while (pileFerraille.Count == 0);
-                        i--;
-                    }
-                }
-                vaisseau.setFerraille = 0;
-            }
-            //--------------------------------------------------------------
-
+            //-------------------------------------------------------------
+            viderFeraille(centreTri, vaisseau, fileDepart);
             //Terre Contaminé
-            //--------------------------------------------------------------
-            if (centreTri.getTabMax[4] != 0)
-            {
-                for (int i = 1; i <= vaisseau.getTerreConta; i++)
-                {
-                    pileTerre = centreTri.getPileTerre;
-                    if (IsCTriFull(centreTri))
-                    {
-                        pileTerre.Push(terre);
-                        centreTri.setPileTerre = pileTerre;
-                    }
-                    else
-                    {
-                        do
-                        {
-                            Ship ship = fileDepart.Dequeue();
-                            for (int u = 0; u <= ship.getPoidMax; u++)
-                            {
-                                if ((pileTerre.Count != 0) && (u < ship.getPoidMax))
-                                    pileTerre.Pop();
-                                else
-                                {
-                                    ship.setTerreConta = u;
-                                    u = 400;
-                                }
-                            }
-                            fileDepart.Enqueue(ship);
-                        } while (pileTerre.Count == 0);
-                        i--;
-                    }
-                }
-                vaisseau.setTerreConta = 0;
-            }*/
-            //--------------------------------------------------------------
-
+            //------------------------------------------------------------
+            viderTerre(centreTri, vaisseau, fileDepart);
             //vider vaisseau
             centreTri.setFileDepart = fileDepart;
         }
@@ -299,10 +189,10 @@ namespace JeuxVaisseaux
             }
         }
 
-        private void Vider_Verre(Ctri centreTri, Ship vaisseau,Queue<Ship> fileDepart)
+        private void viderVerre(Ctri centreTri, Ship vaisseau,Queue<Ship> fileDepart)
         {
             Stack<Verre> pileVerre;
-            Verre verre = new Verre(0);
+            Verre verre = new Verre(1);
 
             if (centreTri.getTabMax[1] != 0)
             {
@@ -330,11 +220,125 @@ namespace JeuxVaisseaux
                                 }
                             }
                             fileDepart.Enqueue(ship);
-                        } while (pileVerre.Count == 0);
+                        } while (pileVerre.Count <= 0);
                         i--;
                     }
                 }
                 vaisseau.setVerre = 0;
+            }
+        }
+
+        private void viderPlastique(Ctri centreTri, Ship vaisseau, Queue<Ship> fileDepart)
+        {
+            Stack<Plastique> pilePlastique;
+            Plastique plastique = new Plastique(0);
+            if (centreTri.getTabMax[2] != 0)
+            {
+                for (int i = 1; i <= vaisseau.getPlastique; i++)
+                {
+                    pilePlastique = centreTri.getPilePlastique;
+                    if (IsCTriFull(centreTri))
+                    {
+                        pilePlastique.Push(plastique);
+                        centreTri.setPilePlastique = pilePlastique;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u <= ship.getPoidMax; u++)
+                            {
+                                if ((pilePlastique.Count != 0) && (u < ship.getPoidMax))
+                                    pilePlastique.Pop();
+                                else
+                                {
+                                    ship.setPlasique = u;
+                                    u = 400;
+                                }
+                            }
+                            fileDepart.Enqueue(ship);
+                        } while (pilePlastique.Count == 0);
+                        i--;
+                    }
+                }
+                vaisseau.setPlasique = 0;
+            }
+        }
+
+        private void viderFeraille(Ctri centreTri, Ship vaisseau, Queue<Ship> fileDepart)
+        {
+            Stack<Feraille> pileFerraille;
+            Feraille feraille = new Feraille(0);
+            if (centreTri.getTabMax[3] != 0)
+            {
+                for (int i = 1; i <= vaisseau.getFerraille; i++)
+                {
+                    pileFerraille = centreTri.getPileFerraile;
+                    if (IsCTriFull(centreTri))
+                    {
+                        pileFerraille.Push(feraille);
+                        centreTri.setPileFerraille = pileFerraille;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u <= ship.getPoidMax; u++)
+                            {
+                                if ((pileFerraille.Count != 0) && (u < ship.getPoidMax))
+                                    pileFerraille.Pop();
+                                else
+                                {
+                                    ship.setFerraille = u;
+                                    u = 400;
+                                }
+                            }
+                            fileDepart.Enqueue(ship);
+                        } while (pileFerraille.Count == 0);
+                        i--;
+                    }
+                }
+                vaisseau.setFerraille = 0;
+            }
+        }
+
+        private void viderTerre(Ctri centreTri, Ship vaisseau, Queue<Ship> fileDepart)
+        {
+            Stack<Terre> pileTerre;
+            Terre terre = new Terre(0);
+            if (centreTri.getTabMax[4] != 0)
+            {
+                for (int i = 1; i <= vaisseau.getTerreConta; i++)
+                {
+                    pileTerre = centreTri.getPileTerre;
+                    if (IsCTriFull(centreTri))
+                    {
+                        pileTerre.Push(terre);
+                        centreTri.setPileTerre = pileTerre;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            Ship ship = fileDepart.Dequeue();
+                            for (int u = 0; u <= ship.getPoidMax; u++)
+                            {
+                                if ((pileTerre.Count != 0) && (u < ship.getPoidMax))
+                                    pileTerre.Pop();
+                                else
+                                {
+                                    ship.setTerreConta = u;
+                                    u = 400;
+                                }
+                            }
+                            fileDepart.Enqueue(ship);
+                        } while (pileTerre.Count == 0);
+                        i--;
+                    }
+                }
+                vaisseau.setTerreConta = 0;
             }
         }
 
@@ -432,14 +436,5 @@ namespace JeuxVaisseaux
                 }
             }
         }
-        private void ControlAffichageFin()
-        {
-            int i;
-            for (i = 0; i < 5; i++)
-            {
-                ca.Afficher_Final(tabCentreTri[i], i++);
-            }
-        }
     }
-
 }
